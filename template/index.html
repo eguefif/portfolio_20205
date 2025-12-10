@@ -189,7 +189,7 @@
             }
 
             .presentation h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
         }
     </style>
@@ -200,10 +200,7 @@
         <aside class="presentation">
             <h1>Emmanuel Guefif</h1>
             <div class="bio">
-                <p>I'm Emmanuel, a software developer and technology enthusiast.</p>
-<p>Not long ago, I was teaching 4th grade in Victoria, BC, Canada. Now I work as a software developer in a digital book company, and I love what I do.</p>
-<p>My career switch wasn't surprising to those who know me. As a teenager, I learned programming with books on C and PHP, then studied math and computer science at University Lyon 1. Through student organizations, I discovered sociology and became an elementary school teacher. But I never stopped programming as a hobby. Returning to software development was a new start, not starting over.</p>
-<p>I love programming and solving problems. I fast-tracked 42 Québec's common core through dedication and preparation—I'm a self-learner who prefers books and projects over waiting to be taught.</p>
+                {{ presentation }}
             </div>
         </aside>
 
@@ -212,49 +209,49 @@
             <!-- Project Card 1 -->
             <article class="project-card">
                 <div class="social-icons">
-                    
-                    <a href="https://github.com/eguefif/grb_amateur" target="_blank" class="github-link">
+                    {{ project_1_youtube_link }}
+                    <a href="{{ project_1_github }}" target="_blank" class="github-link">
                         <img src="images/github-mark.svg" alt="GitHub">
                     </a>
                 </div>
-                <h2>Gamma Ray Burst Platform</h2>
-                <p>This platform allows an amateur astronomer to register, get email notification when a Gamma-Ray Burst is detected by the Fermi satellite and post observations.</p>
+                <h2>{{ project_1_title }}</h2>
+                <p>{{ project_1_description }}</p>
             </article>
 
             <!-- Project Card 2 -->
             <article class="project-card">
                 <div class="social-icons">
-                    
-                    <a href="https://github.com/eguefif/rust_learning" target="_blank" class="github-link">
+                    {{ project_2_youtube_link }}
+                    <a href="{{ project_2_github }}" target="_blank" class="github-link">
                         <img src="images/github-mark.svg" alt="GitHub">
                     </a>
                 </div>
-                <h2>Rust Mastery Learning Plan</h2>
-                <p>This project started as a question on Claude. I was struggling to understand an article about Alias XOR mutability. I asked Claude if writing an async runtime would help me understand this concept. It did not. I asked what could be a better project. As a teacher, I know that we cannot learn something if we don't have the prerequisites. As I was asking what the prerequisites were for each project, I reached a point where I could tell I knew how to do it. I ended up with a complete plan toward Rust mastery. It's composed of projects and book references.</p>
+                <h2>{{ project_2_title }}</h2>
+                <p>{{ project_2_description }}</p>
             </article>
 
             <!-- Project Card 3 -->
             <article class="project-card">
                 <div class="social-icons">
-                    
-                    <a href="https://github.com/eguefif/game_boy_emulator" target="_blank" class="github-link">
+                    {{ project_3_youtube_link }}
+                    <a href="{{ project_3_github }}" target="_blank" class="github-link">
                         <img src="images/github-mark.svg" alt="GitHub">
                     </a>
                 </div>
-                <h2>GameBoy Emulator</h2>
-                <p>This is a GameBoy emulator written in Rust that accurately emulates the classic Nintendo Game Boy hardware. The emulator can run original GameBoy ROMs and successfully plays games like Tetris with proper graphics and input handling.</p>
+                <h2>{{ project_3_title }}</h2>
+                <p>{{ project_3_description }}</p>
             </article>
 
             <!-- Project Card 4 -->
             <article class="project-card">
                 <div class="social-icons">
-                    
-                    <a href="https://github.com/eguefif/ft_transcendence" target="_blank" class="github-link">
+                    {{ project_4_youtube_link }}
+                    <a href="{{ project_4_github }}" target="_blank" class="github-link">
                         <img src="images/github-mark.svg" alt="GitHub">
                     </a>
                 </div>
-                <h2>ft_transcendence - Pong Platform</h2>
-                <p>This is a full-stack web platform built with Django and vanilla JavaScript where users can register, create profiles, and play Pong against each other in real-time. The platform features user authentication, matchmaking, live gameplay, and game history tracking. This was the final project of 42's common core curriculum, completed as a team effort.</p>
+                <h2>{{ project_4_title }}</h2>
+                <p>{{ project_4_description }}</p>
             </article>
         </main>
     </div>
