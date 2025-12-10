@@ -103,12 +103,66 @@
             transition: all 0.3s ease;
             box-shadow: 0 4px 20px rgba(139, 92, 246, 0.4);
             border: 2px solid transparent;
+            cursor: pointer;
         }
 
         .scroll-button:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 30px rgba(139, 92, 246, 0.6);
             border-color: #c4b5fd;
+        }
+
+        /* Scroll Indicator Arrow */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            opacity: 0.5;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
+        }
+
+        .scroll-indicator span {
+            color: #c4b5fd;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .arrow {
+            width: 30px;
+            height: 30px;
+            border-left: 3px solid #c4b5fd;
+            border-bottom: 3px solid #c4b5fd;
+            transform: rotate(-45deg);
+        }
+
+        /* Fade-in animation timing for project cards */
+        .project-card:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .project-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .project-card:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .project-card:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Projects Section */
@@ -150,6 +204,9 @@
             backdrop-filter: blur(10px);
             transition: all 0.3s ease;
             position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.6s ease forwards;
         }
 
         .project-card:hover {
@@ -258,6 +315,12 @@
 
         <!-- Scroll Button -->
         <a href="#projects" class="scroll-button">View My Projects</a>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <span>Scroll Down</span>
+            <div class="arrow"></div>
+        </div>
     </section>
 
     <!-- Projects Section -->
@@ -315,5 +378,49 @@
             </div>
         </div>
     </section>
+
+    <script>
+        // Smooth scroll animation with custom easing
+        document.querySelector('.scroll-button').addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector('#projects');
+            const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
+            const startPosition = window.pageYOffset;
+            const distance = targetPosition - startPosition;
+            const duration = 1200;
+            let start = null;
+
+            function easeInOutCubic(t) {
+                return t < 0.5
+                    ? 4 * t * t * t
+                    : 1 - Math.pow(-2 * t + 2, 3) / 2;
+            }
+
+            function animation(currentTime) {
+                if (start === null) start = currentTime;
+                const timeElapsed = currentTime - start;
+                const progress = Math.min(timeElapsed / duration, 1);
+                const ease = easeInOutCubic(progress);
+
+                window.scrollTo(0, startPosition + distance * ease);
+
+                if (timeElapsed < duration) {
+                    requestAnimationFrame(animation);
+                }
+            }
+
+            requestAnimationFrame(animation);
+        });
+
+        // Hide scroll indicator on scroll
+        window.addEventListener('scroll', function() {
+            const scrollIndicator = document.querySelector('.scroll-indicator');
+            if (window.scrollY > 100) {
+                scrollIndicator.style.opacity = '0';
+            } else {
+                scrollIndicator.style.opacity = '0.5';
+            }
+        });
+    </script>
 </body>
 </html>
