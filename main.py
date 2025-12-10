@@ -4,6 +4,8 @@ Build script to generate index.html from template and markdown files.
 """
 
 import markdown
+import os
+import glob
 
 
 def parse_project_file(filepath):
@@ -91,6 +93,37 @@ def generate_youtube_link_html(youtube_url):
     return ''
 
 
+def find_project_image(project_number):
+    """
+    Find the first image for a project in the projects folder.
+    Looks for files matching pattern: {project_number}-1.* (png, jpg, jpeg, webp, gif)
+
+    Returns the image path if found, otherwise returns empty string.
+    """
+    image_extensions = ['png', 'jpg', 'jpeg', 'webp', 'gif']
+
+    for ext in image_extensions:
+        # Look for pattern like "1-1.png", "2-1.jpg", etc.
+        pattern = f'./projects/{project_number}-1.{ext}'
+        matches = glob.glob(pattern)
+        if matches:
+            return matches[0]
+
+    return ''
+
+
+def generate_project_image_html(project_number, project_title):
+    """
+    Generate HTML for project image if it exists, otherwise return empty string.
+    """
+    image_path = find_project_image(project_number)
+
+    if image_path:
+        return f'<img src="{image_path}" alt="{project_title}" class="project-image">'
+
+    return ''
+
+
 def main():
     # Read the template file
     with open('./template/index.html', 'r', encoding='utf-8') as f:
@@ -123,6 +156,10 @@ def main():
         # Replace YouTube link placeholder with generated HTML
         youtube_html = generate_youtube_link_html(project_data['youtube'])
         output = output.replace(f'{{{{ project_{i}_youtube_link }}}}', youtube_html)
+
+        # Replace image placeholder with generated HTML
+        image_html = generate_project_image_html(i, project_data['title'])
+        output = output.replace(f'{{{{ project_{i}_image }}}}', image_html)
 
     # Write the output to index.html in the root folder
     with open('./index.html', 'w', encoding='utf-8') as f:

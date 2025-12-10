@@ -214,6 +214,15 @@
             box-shadow: 0 8px 24px rgba(139, 92, 246, 0.3);
         }
 
+        .project-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+        }
+
         .social-icons {
             position: absolute;
             top: 15px;
@@ -466,6 +475,7 @@
                             <img src="images/github-mark.svg" alt="GitHub">
                         </a>
                     </div>
+                    <img src="./projects/1-1.png" alt="Gamma Ray Burst Platform" class="project-image">
                     <h2>Gamma Ray Burst Platform</h2>
                     <p>This platform allows an amateur astronomer to register, get email notification when a Gamma-Ray Burst is detected by the Fermi satellite and post observations.</p>
                 </article>
@@ -478,6 +488,7 @@
                             <img src="images/github-mark.svg" alt="GitHub">
                         </a>
                     </div>
+                    
                     <h2>Rust Mastery Learning Plan</h2>
                     <p>This project started as a question on Claude. I was struggling to understand an article about Alias XOR mutability. I asked Claude if writing an async runtime would help me understand this concept. It did not. I asked what could be a better project. As a teacher, I know that we cannot learn something if we don't have the prerequisites. As I was asking what the prerequisites were for each project, I reached a point where I could tell I knew how to do it. I ended up with a complete plan toward Rust mastery. It's composed of projects and book references.</p>
                 </article>
@@ -490,20 +501,22 @@
                             <img src="images/github-mark.svg" alt="GitHub">
                         </a>
                     </div>
+                    <img src="./projects/3-1.webp" alt="GameBoy Emulator" class="project-image">
                     <h2>GameBoy Emulator</h2>
-                    <p>This is a GameBoy emulator written in Rust that accurately emulates the classic Nintendo Game Boy hardware. The emulator can run original GameBoy ROMs and successfully plays games like Tetris with proper graphics and input handling.</p>
+                    <p>This was my first Rust project. I first emulate the CPU, then the clock, the interrupt and finally the Pixel Processing Unit (PPU). I've learned so much about the interaction of the machine and low level program that handles interruptions.</p>
                 </article>
 
                 <!-- Project Card 4 -->
                 <article class="project-card" data-modal="modal-4">
                     <div class="social-icons">
                         
-                        <a href="https://github.com/eguefif/ft_transcendence" target="_blank" class="github-link" onclick="event.stopPropagation()">
+                        <a href="https://github.com/PelletierM/miniRT" target="_blank" class="github-link" onclick="event.stopPropagation()">
                             <img src="images/github-mark.svg" alt="GitHub">
                         </a>
                     </div>
-                    <h2>ft_transcendence - Pong Platform</h2>
-                    <p>This is a full-stack web platform built with Django and vanilla JavaScript where users can register, create profiles, and play Pong against each other in real-time. The platform features user authentication, matchmaking, live gameplay, and game history tracking. This was the final project of 42's common core curriculum, completed as a team effort.</p>
+                    <img src="./projects/4-1.png" alt="Ray Tracer" class="project-image">
+                    <h2>Ray Tracer</h2>
+                    <p>This was the last C project in 42 Common Core. I worked with Maxime to make this one work. We created a Ray Trace capable of drawing sphere, cylinder, plane and triangle.</p>
                 </article>
             </div>
         </div>
@@ -572,19 +585,17 @@ Anytime I merge a branch on master, the new version gets automatically deployed 
                 <button class="close-modal">&times;</button>
             </div>
             <div class="modal-body">
-                <p>This is a GameBoy emulator written in Rust that accurately emulates the classic Nintendo Game Boy hardware. The emulator can run original GameBoy ROMs and successfully plays games like Tetris with proper graphics and input handling.</p>
-<p>The emulator implements the core components of the GameBoy architecture: the Sharp LR35902 CPU (a modified Z80), the Picture Processing Unit (PPU) for graphics rendering, memory management including cartridge ROM and RAM, and input handling. Written entirely in Rust, it leverages the language's memory safety features while maintaining the performance necessary for real-time emulation.</p>
+                <p>This was my first Rust project. I first emulate the CPU, then the clock, the interrupt and finally the Pixel Processing Unit (PPU). I've learned so much about the interaction of the machine and low level program that handles interruptions.</p>
 <h2>Goals</h2>
 <p>I created this project to learn three skills:
 * Rust programming fundamentals including ownership, borrowing, and the type system
-* Computer architecture and low-level programming concepts through hardware emulation
-* Game console internals and how CPU instructions translate to visual output</p>
+* Computer architecture and low-level programming concepts through hardware emulation</p>
 <h2>Spotlights</h2>
 <p>I am particularly proud of getting Tetris to run fully playable. Achieving this milestone required implementing accurate CPU instruction execution, proper timing cycles, correct PPU behavior for tile-based graphics, and synchronized screen refresh rates. Seeing the iconic Tetris pieces fall smoothly on the screen for the first time was incredibly rewarding and confirmed that all the core systems were working together correctly.</p>
+<h2>Current State</h2>
+<p>The emulator is only able to render Tetris correctly. Other game does not work. I know that I have to rework the ppu emulation to allow other game to work. The sound is not working either.</p>
 <h2>Lessons Learned</h2>
-<p>This project was my introduction to Rust, and it taught me the language's core concepts through practical application. The borrow checker and ownership system, while initially challenging, proved invaluable for managing the emulator's complex state. I learned to think differently about memory management and appreciate Rust's guarantees about safety without garbage collection.</p>
-<p>I gained deep insights into computer architecture that I had only understood theoretically before. Implementing CPU instructions one by one, managing memory-mapped I/O, and synchronizing different hardware components gave me a concrete understanding of how computers work at the lowest level. This knowledge has made me a better programmer overall, as I now better understand what happens beneath higher-level abstractions.</p>
-<p>The debugging process was particularly educational. Tracking down why certain graphics weren't rendering correctly or why timing was off required methodical testing and comparison against hardware specifications. I learned to use logging effectively, write test ROMs, and verify behavior against documented CPU cycles. This systematic approach to debugging complex systems is a skill I continue to use in all my projects.</p>
+<p>This project was a deep dive into low level programming. I learned about memory representation, machine architecture, assembly and clocks. I also learned a lot about reading someone's code. There is not a lot of documentation about how the GameBoy works. Most of the emulator author are electronic geek that reversed engineer the chips and write the emulator. The documentation is in their code. It was insightful.</p>
             </div>
         </div>
     </div>
@@ -592,22 +603,20 @@ Anytime I merge a branch on master, the new version gets automatically deployed 
     <div id="modal-4" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2>ft_transcendence - Pong Platform</h2>
+                <h2>Ray Tracer</h2>
                 <button class="close-modal">&times;</button>
             </div>
             <div class="modal-body">
-                <p>This is a full-stack web platform built with Django and vanilla JavaScript where users can register, create profiles, and play Pong against each other in real-time. The platform features user authentication, matchmaking, live gameplay, and game history tracking. This was the final project of 42's common core curriculum, completed as a team effort.</p>
-<p>The frontend is built with vanilla JavaScript to handle the game rendering on HTML5 Canvas and real-time communication with the server. The backend uses Django for user management, game history, and serving the application. The core innovation is a dedicated Python WebSocket server using asyncio that manages multiple concurrent Pong games, handling game state updates, player inputs, ball physics, and collision detection all in real-time while maintaining robust error handling to prevent server crashes.</p>
+                <p>This was the last C project in 42 Common Core. I worked with Maxime to make this one work. We created a Ray Trace capable of drawing sphere, cylinder, plane and triangle.</p>
 <h2>Goals</h2>
-<p>I created this project to learn three skills:
-* Building a complete full-stack web application from authentication to real-time gameplay
-* Implementing asynchronous Python with asyncio and WebSocket protocols for concurrent game management
-* Working effectively as a team on a large project with multiple interconnected components</p>
+<p>This project goals were:
+* Implements in C a Ray Tracer with all the maths and physics behind rendering 
+* Use multi-threading to optimize.
+* Implements texture mapping on object.</p>
 <h2>Spotlights</h2>
-<p>I am particularly proud of the Pong game server I built. Using Python's asyncio library and a WebSocket framework, I created a server capable of handling multiple simultaneous games without blocking. Each game runs in its own coroutine, processing player inputs, updating ball positions, detecting collisions, and broadcasting state updates to both players at 60 frames per second. The main challenge was implementing comprehensive error handling to ensure that if one game encountered an error or a player disconnected unexpectedly, it wouldn't crash the entire server or affect other ongoing games. I implemented graceful degradation, connection recovery, and proper cleanup of resources, resulting in a stable server that could run for extended periods handling dozens of concurrent matches.</p>
+<p>This RayTracer is able to draw triangle. Therefore, it can draw all figure composed by triangle. This was not the most difficult thing to do. There is plenty of literature on how to know if a ray is crossing a triangle but the end view is impressive.</p>
 <h2>Lessons Learned</h2>
-<p>This project was my deep dive into asynchronous programming in Python. I learned how asyncio's event loop works, the difference between concurrent and parallel execution, and how to structure async code effectively. Understanding when to use <code>await</code>, how to manage async context managers, and how to avoid blocking the event loop were crucial skills. I also learned about WebSocket protocols, connection lifecycle management, and the challenges of maintaining state across unreliable network connections.</p>
-<p>Working as a team on a large project taught me invaluable collaboration skills. We had to coordinate between frontend and backend development, establish API contracts, manage a shared Git repository with multiple branches, conduct code reviews, and integrate our components. I learned the importance of clear communication, documenting decisions, and writing code that others can understand and maintain. We used task distribution, regular sync meetings, and pair programming for complex features. This experience showed me that technical skills alone aren't enough - successful projects require good teamwork, planning, and the ability to compromise on technical decisions for the benefit of the overall project.</p>
+<p>The teamwork was interesting on this one. At this point in the curriculum, I was used to worked with Maxime. We already worked on a couple of project and we knew how to do that. We were pair programming a lot and use TDD whenever we could. On this project though, pair programming didn't work. As we were understanding the maths behind that at the different pace, we only figured out together how to draw a plane. When we both understood the concept behind Ray tracing, we decided to split the work. He was much better than me to understand the maths behind. Working this way gave me some time to familiarize with the concept.</p>
             </div>
         </div>
     </div>
