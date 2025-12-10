@@ -16,78 +16,129 @@
         body {
             font-family: 'Inter', sans-serif;
             line-height: 1.7;
-            padding: 20px;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 40px;
+            margin: 0;
+            padding: 0;
             background: linear-gradient(135deg, #0f0c29 0%, #1a1340 50%, #24243e 100%);
             color: #d4d4d4;
             position: relative;
         }
 
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image:
-                radial-gradient(circle at 20% 50%, rgba(88, 28, 135, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.08) 0%, transparent 50%);
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .container {
+        /* Hero Section */
+        .hero-section {
+            min-height: 100vh;
             display: flex;
-            gap: 40px;
-            max-width: 1400px;
-            margin: 0 auto;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 40px;
             position: relative;
-            z-index: 1;
+            background-image:
+                radial-gradient(circle at 20% 50%, rgba(88, 28, 135, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
         }
 
-        .presentation {
-            flex: 1;
-            min-width: 300px;
-            background: rgba(30, 20, 50, 0.6);
-            padding: 30px;
-            border: 2px solid #6b46c1;
-            border-radius: 20px 5px 20px 5px;
-            box-shadow:
-                0 0 30px rgba(107, 70, 193, 0.3),
-                inset 0 0 20px rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
+        .hero-content {
+            max-width: 800px;
+            text-align: center;
+            margin-bottom: 40px;
         }
 
-        .presentation h1 {
+        .hero-content h1 {
             font-family: 'Poppins', sans-serif;
-            font-size: 2.8rem;
-            font-weight: 600;
-            margin-bottom: 25px;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 30px;
             color: #c4b5fd;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
             letter-spacing: 1px;
         }
 
         .bio {
-            white-space: pre-wrap;
             color: #e5e5e5;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             font-weight: 400;
-            text-align: justify;
-            line-height: 1.9;
+            line-height: 2;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Social Links in Hero */
+        .hero-social-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 50px;
+        }
+
+        .hero-social-links a {
+            display: block;
+            transition: all 0.3s ease;
+        }
+
+        .hero-social-links a:hover {
+            opacity: 0.7;
+            transform: translateY(-3px);
+        }
+
+        .hero-social-links img {
+            width: 50px;
+            height: 50px;
+            filter: brightness(0) invert(1);
+        }
+
+        /* Scroll Button */
+        .scroll-button {
+            display: inline-block;
+            padding: 16px 40px;
+            background: linear-gradient(135deg, #8b5cf6 0%, #6b46c1 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(139, 92, 246, 0.4);
+            border: 2px solid transparent;
+        }
+
+        .scroll-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(139, 92, 246, 0.6);
+            border-color: #c4b5fd;
+        }
+
+        /* Projects Section */
+        .projects-section {
+            min-height: 100vh;
+            padding: 80px 40px;
+            position: relative;
+            background: rgba(15, 12, 41, 0.5);
+        }
+
+        .projects-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .projects-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            text-align: center;
+            color: #c4b5fd;
+            margin-bottom: 60px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
         }
 
         .projects-grid {
-            flex: 2;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
+            gap: 30px;
+            margin: 0 auto;
         }
 
         .project-card {
@@ -156,114 +207,113 @@
         }
 
         /* Social Links Footer */
-        .social-links {
-            display: flex;
-            gap: 30px;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .social-links a {
-            display: block;
-            transition: opacity 0.3s ease;
-        }
-
-        .social-links a:hover {
-            opacity: 0.7;
-        }
-
-        .social-links img {
-            width: 40px;
-            height: 40px;
-            filter: brightness(0) invert(1);
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
         }
 
         /* Responsive layout for screens under 600px */
-        @media (max-width: 600px) {
-            .container {
-                flex-direction: column;
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .bio {
+                font-size: 1.1rem;
             }
 
             .projects-grid {
                 grid-template-columns: 1fr;
             }
 
-            .presentation h1 {
-                font-size: 2.2rem;
+            .hero-section {
+                padding: 40px 20px;
+            }
+
+            .projects-section {
+                padding: 60px 20px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Left side: Name and Presentation -->
-        <aside class="presentation">
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
             <h1>Emmanuel Guefif</h1>
             <div class="bio">
                 {{ presentation }}
             </div>
-        </aside>
+        </div>
 
-        <!-- Right side: Project Cards Grid -->
-        <main class="projects-grid">
-            <!-- Project Card 1 -->
-            <article class="project-card">
-                <div class="social-icons">
-                    {{ project_1_youtube_link }}
-                    <a href="{{ project_1_github }}" target="_blank" class="github-link">
-                        <img src="images/github-mark.svg" alt="GitHub">
-                    </a>
-                </div>
-                <h2>{{ project_1_title }}</h2>
-                <p>{{ project_1_description }}</p>
-            </article>
+        <!-- Social Links -->
+        <div class="hero-social-links">
+            <a href="https://www.linkedin.com/in/eguefif" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <img src="images/linkedin.png" alt="LinkedIn">
+            </a>
+            <a href="https://www.github.com/eguefif" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <img src="images/github-mark.svg" alt="GitHub">
+            </a>
+        </div>
 
-            <!-- Project Card 2 -->
-            <article class="project-card">
-                <div class="social-icons">
-                    {{ project_2_youtube_link }}
-                    <a href="{{ project_2_github }}" target="_blank" class="github-link">
-                        <img src="images/github-mark.svg" alt="GitHub">
-                    </a>
-                </div>
-                <h2>{{ project_2_title }}</h2>
-                <p>{{ project_2_description }}</p>
-            </article>
+        <!-- Scroll Button -->
+        <a href="#projects" class="scroll-button">View My Projects</a>
+    </section>
 
-            <!-- Project Card 3 -->
-            <article class="project-card">
-                <div class="social-icons">
-                    {{ project_3_youtube_link }}
-                    <a href="{{ project_3_github }}" target="_blank" class="github-link">
-                        <img src="images/github-mark.svg" alt="GitHub">
-                    </a>
-                </div>
-                <h2>{{ project_3_title }}</h2>
-                <p>{{ project_3_description }}</p>
-            </article>
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
+        <div class="projects-container">
+            <h2 class="projects-title">My Projects</h2>
+            <div class="projects-grid">
+                <!-- Project Card 1 -->
+                <article class="project-card">
+                    <div class="social-icons">
+                        {{ project_1_youtube_link }}
+                        <a href="{{ project_1_github }}" target="_blank" class="github-link">
+                            <img src="images/github-mark.svg" alt="GitHub">
+                        </a>
+                    </div>
+                    <h2>{{ project_1_title }}</h2>
+                    <p>{{ project_1_description }}</p>
+                </article>
 
-            <!-- Project Card 4 -->
-            <article class="project-card">
-                <div class="social-icons">
-                    {{ project_4_youtube_link }}
-                    <a href="{{ project_4_github }}" target="_blank" class="github-link">
-                        <img src="images/github-mark.svg" alt="GitHub">
-                    </a>
-                </div>
-                <h2>{{ project_4_title }}</h2>
-                <p>{{ project_4_description }}</p>
-            </article>
-        </main>
-    </div>
+                <!-- Project Card 2 -->
+                <article class="project-card">
+                    <div class="social-icons">
+                        {{ project_2_youtube_link }}
+                        <a href="{{ project_2_github }}" target="_blank" class="github-link">
+                            <img src="images/github-mark.svg" alt="GitHub">
+                        </a>
+                    </div>
+                    <h2>{{ project_2_title }}</h2>
+                    <p>{{ project_2_description }}</p>
+                </article>
 
-    <!-- Social Links Footer -->
-    <footer class="social-links">
-        <a href="https://www.linkedin.com/in/eguefif" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-            <img src="images/linkedin.png" alt="LinkedIn">
-        </a>
-        <a href="https://www.github.com/eguefif" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-            <img src="images/github-mark.svg" alt="GitHub">
-        </a>
-    </footer>
+                <!-- Project Card 3 -->
+                <article class="project-card">
+                    <div class="social-icons">
+                        {{ project_3_youtube_link }}
+                        <a href="{{ project_3_github }}" target="_blank" class="github-link">
+                            <img src="images/github-mark.svg" alt="GitHub">
+                        </a>
+                    </div>
+                    <h2>{{ project_3_title }}</h2>
+                    <p>{{ project_3_description }}</p>
+                </article>
+
+                <!-- Project Card 4 -->
+                <article class="project-card">
+                    <div class="social-icons">
+                        {{ project_4_youtube_link }}
+                        <a href="{{ project_4_github }}" target="_blank" class="github-link">
+                            <img src="images/github-mark.svg" alt="GitHub">
+                        </a>
+                    </div>
+                    <h2>{{ project_4_title }}</h2>
+                    <p>{{ project_4_description }}</p>
+                </article>
+            </div>
+        </div>
+    </section>
 </body>
 </html>
