@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ name }} - Portfolio</title>
+    <title>Emmanuel Guefif - Portfolio</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+
         * {
             margin: 0;
             padding: 0;
@@ -12,75 +14,163 @@
         }
 
         body {
-            font-family: system-ui, -apple-system, sans-serif;
+            font-family: 'Crimson Text', serif;
             line-height: 1.6;
             padding: 20px;
             min-height: 100vh;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
+            gap: 40px;
+            background: linear-gradient(135deg, #0f0c29 0%, #1a1340 50%, #24243e 100%);
+            color: #d4d4d4;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                radial-gradient(circle at 20% 50%, rgba(88, 28, 135, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
         }
 
         .container {
             display: flex;
-            gap: 30px;
+            gap: 40px;
             max-width: 1400px;
             margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
 
         .presentation {
             flex: 1;
             min-width: 300px;
+            background: rgba(30, 20, 50, 0.6);
+            padding: 30px;
+            border: 2px solid #6b46c1;
+            border-radius: 20px 5px 20px 5px;
+            box-shadow:
+                0 0 30px rgba(107, 70, 193, 0.3),
+                inset 0 0 20px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
         }
 
         .presentation h1 {
-            margin-bottom: 20px;
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            color: #c4b5fd;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            letter-spacing: 2px;
         }
 
         .bio {
             white-space: pre-wrap;
+            color: #e5e5e5;
+            font-size: 1.05rem;
+            text-align: justify;
+            line-height: 1.8;
         }
 
         .projects-grid {
             flex: 2;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
+            gap: 25px;
         }
 
         .project-card {
-            border: 1px solid #ddd;
-            padding: 20px;
-            border-radius: 8px;
+            background: rgba(40, 30, 60, 0.5);
+            padding: 25px;
+            border: 2px solid #8b5cf6;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(139, 92, 246, 0.3);
+        }
+
+        .social-icons {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .github-link,
+        .youtube-link {
+            display: block;
+            transition: opacity 0.3s ease;
+        }
+
+        .github-link:hover,
+        .youtube-link:hover {
+            opacity: 0.7;
+        }
+
+        .github-link img {
+            width: 30px;
+            height: 30px;
+            filter: brightness(0) invert(1);
+        }
+
+        .youtube-link img {
+            width: 30px;
+            height: 30px;
         }
 
         .project-card h2 {
-            margin-bottom: 10px;
-            font-size: 1.3rem;
+            font-family: 'Cinzel', serif;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+            color: #a78bfa;
+            letter-spacing: 1px;
+            padding-right: 40px;
         }
 
         .project-card p {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            color: #d1d5db;
+            font-size: 0.95rem;
         }
 
-        .project-links {
+        /* Social Links Footer */
+        .social-links {
             display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
+            gap: 30px;
+            align-items: center;
+            justify-content: center;
         }
 
-        .project-links a {
-            text-decoration: none;
-            color: #0066cc;
-            padding: 5px 10px;
-            border: 1px solid #0066cc;
-            border-radius: 4px;
-            font-size: 0.9rem;
+        .social-links a {
+            display: block;
+            transition: opacity 0.3s ease;
         }
 
-        .project-links a:hover {
-            background-color: #0066cc;
-            color: white;
+        .social-links a:hover {
+            opacity: 0.7;
+        }
+
+        .social-links img {
+            width: 40px;
+            height: 40px;
+            filter: brightness(0) invert(1);
         }
 
         /* Responsive layout for screens under 600px */
@@ -91,6 +181,10 @@
 
             .projects-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .presentation h1 {
+                font-size: 2rem;
             }
         }
     </style>
@@ -109,56 +203,70 @@
         <main class="projects-grid">
             <!-- Project Card 1 -->
             <article class="project-card">
+                <div class="social-icons">
+                    <a href="{{ project_1_youtube }}" target="_blank" class="youtube-link">
+                        <img src="yt_icon_red_digital.png" alt="YouTube">
+                    </a>
+                    <a href="{{ project_1_github }}" target="_blank" class="github-link">
+                        <img src="github-mark.svg" alt="GitHub">
+                    </a>
+                </div>
                 <h2>{{ project_1_title }}</h2>
                 <p>{{ project_1_description }}</p>
-                <div class="project-links">
-                    <a href="{{ project_1_detail_link }}">View Details</a>
-                    <a href="{{ project_1_github }}" target="_blank">GitHub</a>
-                    {% if project_1_live_link %}
-                    <a href="{{ project_1_live_link }}" target="_blank">Live Demo</a>
-                    {% endif %}
-                </div>
             </article>
 
             <!-- Project Card 2 -->
             <article class="project-card">
+                <div class="social-icons">
+                    <a href="{{ project_2_youtube }}" target="_blank" class="youtube-link">
+                        <img src="yt_icon_red_digital.png" alt="YouTube">
+                    </a>
+                    <a href="{{ project_2_github }}" target="_blank" class="github-link">
+                        <img src="github-mark.svg" alt="GitHub">
+                    </a>
+                </div>
                 <h2>{{ project_2_title }}</h2>
                 <p>{{ project_2_description }}</p>
-                <div class="project-links">
-                    <a href="{{ project_2_detail_link }}">View Details</a>
-                    <a href="{{ project_2_github }}" target="_blank">GitHub</a>
-                    {% if project_2_live_link %}
-                    <a href="{{ project_2_live_link }}" target="_blank">Live Demo</a>
-                    {% endif %}
-                </div>
             </article>
 
             <!-- Project Card 3 -->
             <article class="project-card">
+                <div class="social-icons">
+                    <a href="{{ project_3_youtube }}" target="_blank" class="youtube-link">
+                        <img src="yt_icon_red_digital.png" alt="YouTube">
+                    </a>
+                    <a href="{{ project_3_github }}" target="_blank" class="github-link">
+                        <img src="github-mark.svg" alt="GitHub">
+                    </a>
+                </div>
                 <h2>{{ project_3_title }}</h2>
                 <p>{{ project_3_description }}</p>
-                <div class="project-links">
-                    <a href="{{ project_3_detail_link }}">View Details</a>
-                    <a href="{{ project_3_github }}" target="_blank">GitHub</a>
-                    {% if project_3_live_link %}
-                    <a href="{{ project_3_live_link }}" target="_blank">Live Demo</a>
-                    {% endif %}
-                </div>
             </article>
 
             <!-- Project Card 4 -->
             <article class="project-card">
+                <div class="social-icons">
+                    <a href="{{ project_4_youtube }}" target="_blank" class="youtube-link">
+                        <img src="yt_icon_red_digital.png" alt="YouTube">
+                    </a>
+                    <a href="{{ project_4_github }}" target="_blank" class="github-link">
+                        <img src="github-mark.svg" alt="GitHub">
+                    </a>
+                </div>
                 <h2>{{ project_4_title }}</h2>
                 <p>{{ project_4_description }}</p>
-                <div class="project-links">
-                    <a href="{{ project_4_detail_link }}">View Details</a>
-                    <a href="{{ project_4_github }}" target="_blank">GitHub</a>
-                    {% if project_4_live_link %}
-                    <a href="{{ project_4_live_link }}" target="_blank">Live Demo</a>
-                    {% endif %}
-                </div>
             </article>
         </main>
     </div>
+
+    <!-- Social Links Footer -->
+    <footer class="social-links">
+        <a href="https://www.linkedin.com/in/eguefif" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <img src="linkedin.png" alt="LinkedIn">
+        </a>
+        <a href="https://www.github.com/eguefif" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <img src="github-mark.svg" alt="GitHub">
+        </a>
+    </footer>
 </body>
 </html>
