@@ -171,6 +171,7 @@ def parse_markdown_sections(markdown_text):
 def generate_modal_body(project_number, markdown_content):
     """
     Generate modal body HTML with sections and alternating images.
+    H1 title is removed from content (it appears in modal header instead).
     Images alternate between left and right for each section.
     """
     sections = parse_markdown_sections(markdown_content)
@@ -178,6 +179,15 @@ def generate_modal_body(project_number, markdown_content):
     image_counter = 1
 
     for idx, (heading, content) in enumerate(sections):
+        # Check if this is the first section (intro) and remove H1 title
+        if idx == 0 and not heading:
+            # Remove H1 from content (it's already in the modal header)
+            content = re.sub(r'^# .+$\n?', '', content, count=1, flags=re.MULTILINE).strip()
+
+        # Skip empty sections
+        if not content.strip() and not heading:
+            continue
+
         section_html = '<div class="modal-section">'
 
         # Find image for this section
@@ -189,13 +199,14 @@ def generate_modal_body(project_number, markdown_content):
             section_html += f'<img src="{image_path}" alt="{heading}" class="{image_class}">'
             image_counter += 1
 
-        # Add heading if it exists
+        # Add heading if it exists (H2 sections)
         if heading:
             section_html += f'<h2>{heading}</h2>'
 
         # Convert markdown content to HTML
-        content_html = markdown.markdown(content)
-        section_html += content_html
+        if content.strip():
+            content_html = markdown.markdown(content)
+            section_html += content_html
 
         section_html += '</div>'
         html_parts.append(section_html)

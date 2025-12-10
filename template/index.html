@@ -37,10 +37,31 @@
                 radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
         }
 
-        .hero-content {
-            max-width: 800px;
-            text-align: center;
+        .hero-main {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            max-width: 1200px;
             margin-bottom: 40px;
+        }
+
+        .hero-image {
+            flex-shrink: 0;
+        }
+
+        .hero-image img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #8b5cf6;
+            box-shadow: 0 8px 32px rgba(139, 92, 246, 0.4);
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 700px;
         }
 
         .hero-content h1 {
@@ -51,6 +72,7 @@
             color: #c4b5fd;
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
             letter-spacing: 1px;
+            text-align: left;
         }
 
         .bio {
@@ -58,10 +80,14 @@
             font-size: 1.2rem;
             font-weight: 400;
             line-height: 2;
-            margin-bottom: 40px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .bio p {
+            margin: 0;
         }
 
         /* Social Links in Hero */
@@ -110,35 +136,6 @@
             transform: translateY(-2px);
             box-shadow: 0 6px 30px rgba(139, 92, 246, 0.6);
             border-color: #c4b5fd;
-        }
-
-        /* Scroll Indicator Arrow */
-        .scroll-indicator {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-            opacity: 0.5;
-            transition: opacity 0.5s ease;
-            pointer-events: none;
-        }
-
-        .scroll-indicator span {
-            color: #c4b5fd;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        .arrow {
-            width: 30px;
-            height: 30px;
-            border-left: 3px solid #c4b5fd;
-            border-bottom: 3px solid #c4b5fd;
-            transform: rotate(-45deg);
         }
 
         /* Fade-in animation timing for project cards */
@@ -430,12 +427,24 @@
 
         /* Responsive layout for screens under 600px */
         @media (max-width: 768px) {
+            .hero-main {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .hero-image img {
+                width: 200px;
+                height: 200px;
+            }
+
             .hero-content h1 {
                 font-size: 2.5rem;
+                text-align: center;
             }
 
             .bio {
                 font-size: 1.1rem;
+                text-align: center;
             }
 
             .projects-grid {
@@ -455,10 +464,15 @@
 <body>
     <!-- Hero Section -->
     <section class="hero-section">
-        <div class="hero-content">
-            <h1>Emmanuel Guefif</h1>
-            <div class="bio">
-                {{ presentation }}
+        <div class="hero-main">
+            <div class="hero-image">
+                <img src="emmanuel.jpeg" alt="Emmanuel Guefif">
+            </div>
+            <div class="hero-content">
+                <h1>Emmanuel Guefif</h1>
+                <div class="bio">
+                    {{ presentation }}
+                </div>
             </div>
         </div>
 
@@ -474,12 +488,6 @@
 
         <!-- Scroll Button -->
         <a href="#projects" class="scroll-button">View My Projects</a>
-
-        <!-- Scroll Indicator -->
-        <div class="scroll-indicator">
-            <span>Scroll Down</span>
-            <div class="arrow"></div>
-        </div>
     </section>
 
     <!-- Projects Section -->

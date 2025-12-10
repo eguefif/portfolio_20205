@@ -37,10 +37,31 @@
                 radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
         }
 
-        .hero-content {
-            max-width: 800px;
-            text-align: center;
+        .hero-main {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            max-width: 1200px;
             margin-bottom: 40px;
+        }
+
+        .hero-image {
+            flex-shrink: 0;
+        }
+
+        .hero-image img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #8b5cf6;
+            box-shadow: 0 8px 32px rgba(139, 92, 246, 0.4);
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 700px;
         }
 
         .hero-content h1 {
@@ -51,6 +72,7 @@
             color: #c4b5fd;
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
             letter-spacing: 1px;
+            text-align: left;
         }
 
         .bio {
@@ -58,10 +80,14 @@
             font-size: 1.2rem;
             font-weight: 400;
             line-height: 2;
-            margin-bottom: 40px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .bio p {
+            margin: 0;
         }
 
         /* Social Links in Hero */
@@ -110,35 +136,6 @@
             transform: translateY(-2px);
             box-shadow: 0 6px 30px rgba(139, 92, 246, 0.6);
             border-color: #c4b5fd;
-        }
-
-        /* Scroll Indicator Arrow */
-        .scroll-indicator {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-            opacity: 0.5;
-            transition: opacity 0.5s ease;
-            pointer-events: none;
-        }
-
-        .scroll-indicator span {
-            color: #c4b5fd;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        .arrow {
-            width: 30px;
-            height: 30px;
-            border-left: 3px solid #c4b5fd;
-            border-bottom: 3px solid #c4b5fd;
-            transform: rotate(-45deg);
         }
 
         /* Fade-in animation timing for project cards */
@@ -430,12 +427,24 @@
 
         /* Responsive layout for screens under 600px */
         @media (max-width: 768px) {
+            .hero-main {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .hero-image img {
+                width: 200px;
+                height: 200px;
+            }
+
             .hero-content h1 {
                 font-size: 2.5rem;
+                text-align: center;
             }
 
             .bio {
                 font-size: 1.1rem;
+                text-align: center;
             }
 
             .projects-grid {
@@ -455,13 +464,18 @@
 <body>
     <!-- Hero Section -->
     <section class="hero-section">
-        <div class="hero-content">
-            <h1>Emmanuel Guefif</h1>
-            <div class="bio">
-                <p>I'm Emmanuel, a software developer and technology enthusiast.</p>
+        <div class="hero-main">
+            <div class="hero-image">
+                <img src="emmanuel.jpeg" alt="Emmanuel Guefif">
+            </div>
+            <div class="hero-content">
+                <h1>Emmanuel Guefif</h1>
+                <div class="bio">
+                    <p>I'm Emmanuel, a software developer and technology enthusiast.</p>
 <p>Not long ago, I was teaching 4th grade in Victoria, BC, Canada. Now I work as a software developer in a digital book company, and I love what I do.</p>
 <p>My career switch wasn't surprising to those who know me. As a teenager, I learned programming with books on C and PHP, then studied math and computer science at University Lyon 1. Through student organizations, I discovered sociology and became an elementary school teacher. But I never stopped programming as a hobby. Returning to software development was a new start, not starting over.</p>
 <p>I love programming and solving problems. I fast-tracked 42 Québec's common core through dedication and preparation—I'm a self-learner who prefers books and projects over waiting to be taught.</p>
+                </div>
             </div>
         </div>
 
@@ -477,12 +491,6 @@
 
         <!-- Scroll Button -->
         <a href="#projects" class="scroll-button">View My Projects</a>
-
-        <!-- Scroll Indicator -->
-        <div class="scroll-indicator">
-            <span>Scroll Down</span>
-            <div class="arrow"></div>
-        </div>
     </section>
 
     <!-- Projects Section -->
@@ -553,8 +561,7 @@
                 <button class="close-modal">&times;</button>
             </div>
             <div class="modal-body">
-                <div class="modal-section"><img src="./projects/1-1.png" alt="" class="modal-section-image-left"><h1>Gamma Ray Burst Platform</h1>
-<p>This platform allows an amateur astronomer to register, get email notification when a Gamma-Ray Burst is detected by the Fermi satellite and post observations.</p>
+                <div class="modal-section"><img src="./projects/1-1.png" alt="" class="modal-section-image-left"><p>This platform allows an amateur astronomer to register, get email notification when a Gamma-Ray Burst is detected by the Fermi satellite and post observations.</p>
 <p>The backend is written with FastAPI/Postgres and the Frontend is in Vue.js.</p>
 <p>In terms of infrastructure, I have three compute units and a virtual network on Scaleway. I use Docker Swarm to manage three services: Frontend serving, FastAPI backend and alertSys. Alertsys is a python service that monitors Nasa GCN kafka event bus. When a message is received, AlertSys sends an HTTP request to the backend. The backend registers the alert and notifies users. Postgres is hosted on one of the instances. Everything is behind an Nginx. </p>
 <p>The server's ip address is protected by Cloudflare which is used as a reverse proxy.</p></div>
@@ -578,8 +585,7 @@ Anytime I merge a branch on master, the new version gets automatically deployed 
                 <button class="close-modal">&times;</button>
             </div>
             <div class="modal-body">
-                <div class="modal-section"><h1>Rust Mastery Learning Plan</h1>
-<p>This project started as a question on Claude. I was struggling to understand an article about Alias XOR mutability. I asked Claude if writing an async runtime would help me understand this concept. It did not. I asked what could be a better project. As a teacher, I know that we cannot learn something if we don't have the prerequisites. As I was asking what the prerequisites were for each project, I reached a point where I could tell I knew how to do it. I ended up with a complete plan toward Rust mastery. It's composed of projects and book references. </p>
+                <div class="modal-section"><p>This project started as a question on Claude. I was struggling to understand an article about Alias XOR mutability. I asked Claude if writing an async runtime would help me understand this concept. It did not. I asked what could be a better project. As a teacher, I know that we cannot learn something if we don't have the prerequisites. As I was asking what the prerequisites were for each project, I reached a point where I could tell I knew how to do it. I ended up with a complete plan toward Rust mastery. It's composed of projects and book references. </p>
 <p>This is a generative AI plan. One could think this is not reliable. Here comes the best part. It is my job to check if the plan is good or not and to improve it. This work of analyzing what the plan is with regard to my experience is the most beneficial aspect of this project. In the end, I learned Rust in a way that will stay.</p></div>
 <div class="modal-section"><h2>Goals</h2><p>I created this project to learn three skills:
 * Iterator in Rust
@@ -603,8 +609,7 @@ Anytime I merge a branch on master, the new version gets automatically deployed 
                 <button class="close-modal">&times;</button>
             </div>
             <div class="modal-body">
-                <div class="modal-section"><img src="./projects/3-1.webp" alt="" class="modal-section-image-left"><h1>GameBoy Emulator</h1>
-<p>This was my first Rust project. I first emulate the CPU, then the clock, the interrupt and finally the Pixel Processing Unit (PPU). I've learned so much about the interaction of the machine and low level program that handles interruptions.</p></div>
+                <div class="modal-section"><img src="./projects/3-1.webp" alt="" class="modal-section-image-left"><p>This was my first Rust project. I first emulate the CPU, then the clock, the interrupt and finally the Pixel Processing Unit (PPU). I've learned so much about the interaction of the machine and low level program that handles interruptions.</p></div>
 <div class="modal-section"><h2>Goals</h2><p>I created this project to learn three skills:
 * Rust programming fundamentals including ownership, borrowing, and the type system
 * Computer architecture and low-level programming concepts through hardware emulation</p></div>
@@ -622,8 +627,7 @@ Anytime I merge a branch on master, the new version gets automatically deployed 
                 <button class="close-modal">&times;</button>
             </div>
             <div class="modal-body">
-                <div class="modal-section"><img src="./projects/4-1.png" alt="" class="modal-section-image-left"><h1>Ray Tracer</h1>
-<p>This was the last C project in 42 Common Core. I worked with Maxime to make this one work. We created a Ray Trace capable of drawing sphere, cylinder, plane and triangle.</p></div>
+                <div class="modal-section"><img src="./projects/4-1.png" alt="" class="modal-section-image-left"><p>This was the last C project in 42 Common Core. I worked with Maxime to make this one work. We created a Ray Trace capable of drawing sphere, cylinder, plane and triangle.</p></div>
 <div class="modal-section"><img src="./projects/4-2.png" alt="Goals" class="modal-section-image-right"><h2>Goals</h2><p>This project goals were:
 * Implements in C a Ray Tracer with all the maths and physics behind rendering 
 * Use multi-threading to optimize.
