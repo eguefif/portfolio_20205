@@ -15,16 +15,19 @@ def parse_project_file(filepath):
     - Optional: YouTube link (with 'yt:' prefix)
     - # Title
     - First paragraph (description)
+    - Full content for modal
 
-    Returns a dict with: github, youtube, title, description
+    Returns a dict with: github, youtube, title, description, full_content_html
     """
     with open(filepath, 'r', encoding='utf-8') as f:
-        lines = f.readlines()
+        content = f.read()
+        lines = content.split('\n')
 
     github = ""
     youtube = ""
     title = ""
     description = ""
+    modal_content = []
 
     # First line is always GitHub link
     if lines:
@@ -34,32 +37,45 @@ def parse_project_file(filepath):
 
     # Look for optional YouTube link and title
     i = 1
+    title_line_index = -1
     while i < len(lines):
         line = lines[i].strip()
         if line.startswith('yt:'):
             youtube = line[3:].strip()
             i += 1
-        elif line.startswith('#'):
+        elif line.startswith('#') and not line.startswith('##'):
             # Found the title
             title = line.lstrip('#').strip()
+            title_line_index = i
             i += 1
             break
         else:
             i += 1
 
     # Extract the first paragraph (skip empty lines after title)
+    first_para_index = -1
     while i < len(lines):
         line = lines[i].strip()
         if line and not line.startswith('#'):
             description = line
+            first_para_index = i
             break
         i += 1
+
+    # Extract everything after the title for the modal (excluding the first line which is the link)
+    if title_line_index >= 0:
+        modal_lines = lines[title_line_index + 1:]
+        modal_markdown = '\n'.join(modal_lines)
+        modal_content_html = markdown.markdown(modal_markdown)
+    else:
+        modal_content_html = ""
 
     return {
         'github': github,
         'youtube': youtube,
         'title': title,
-        'description': description
+        'description': description,
+        'modal_content': modal_content_html
     }
 
 
@@ -68,7 +84,7 @@ def generate_youtube_link_html(youtube_url):
     Generate HTML for YouTube link if URL exists, otherwise return empty string.
     """
     if youtube_url:
-        return f'''<a href="{youtube_url}" target="_blank" class="youtube-link">
+        return f'''<a href="{youtube_url}" target="_blank" class="youtube-link" onclick="event.stopPropagation()">
                         <img src="images/yt_icon_red_digital.png" alt="YouTube">
                     </a>
                     '''
@@ -100,6 +116,9 @@ def main():
         # Replace title and description
         output = output.replace(f'{{{{ project_{i}_title }}}}', project_data['title'])
         output = output.replace(f'{{{{ project_{i}_description }}}}', project_data['description'])
+
+        # Replace modal content
+        output = output.replace(f'{{{{ project_{i}_modal_content }}}}', project_data['modal_content'])
 
         # Replace YouTube link placeholder with generated HTML
         youtube_html = generate_youtube_link_html(project_data['youtube'])
