@@ -219,7 +219,7 @@
             height: 200px;
             object-fit: cover;
             border-radius: 8px;
-            margin-bottom: 20px;
+            margin-top: 20px;
             border: 1px solid rgba(139, 92, 246, 0.3);
         }
 
@@ -396,6 +396,29 @@
             margin-bottom: 8px;
         }
 
+        .modal-section {
+            margin-bottom: 30px;
+            overflow: auto;
+        }
+
+        .modal-section-image-left {
+            float: left;
+            width: 45%;
+            margin-right: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+        }
+
+        .modal-section-image-right {
+            float: right;
+            width: 45%;
+            margin-left: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+        }
+
         .project-card {
             cursor: pointer;
         }
@@ -472,9 +495,9 @@
                             <img src="images/github-mark.svg" alt="GitHub">
                         </a>
                     </div>
-                    {{ project_1_image }}
                     <h2>{{ project_1_title }}</h2>
                     <p>{{ project_1_description }}</p>
+                    {{ project_1_image }}
                 </article>
 
                 <!-- Project Card 2 -->
@@ -485,9 +508,9 @@
                             <img src="images/github-mark.svg" alt="GitHub">
                         </a>
                     </div>
-                    {{ project_2_image }}
                     <h2>{{ project_2_title }}</h2>
                     <p>{{ project_2_description }}</p>
+                    {{ project_2_image }}
                 </article>
 
                 <!-- Project Card 3 -->
@@ -498,9 +521,9 @@
                             <img src="images/github-mark.svg" alt="GitHub">
                         </a>
                     </div>
-                    {{ project_3_image }}
                     <h2>{{ project_3_title }}</h2>
                     <p>{{ project_3_description }}</p>
+                    {{ project_3_image }}
                 </article>
 
                 <!-- Project Card 4 -->
@@ -511,62 +534,16 @@
                             <img src="images/github-mark.svg" alt="GitHub">
                         </a>
                     </div>
-                    {{ project_4_image }}
                     <h2>{{ project_4_title }}</h2>
                     <p>{{ project_4_description }}</p>
+                    {{ project_4_image }}
                 </article>
             </div>
         </div>
     </section>
 
     <!-- Modals -->
-    <div id="modal-1" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>{{ project_1_title }}</h2>
-                <button class="close-modal">&times;</button>
-            </div>
-            <div class="modal-body">
-                {{ project_1_modal_content }}
-            </div>
-        </div>
-    </div>
-
-    <div id="modal-2" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>{{ project_2_title }}</h2>
-                <button class="close-modal">&times;</button>
-            </div>
-            <div class="modal-body">
-                {{ project_2_modal_content }}
-            </div>
-        </div>
-    </div>
-
-    <div id="modal-3" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>{{ project_3_title }}</h2>
-                <button class="close-modal">&times;</button>
-            </div>
-            <div class="modal-body">
-                {{ project_3_modal_content }}
-            </div>
-        </div>
-    </div>
-
-    <div id="modal-4" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>{{ project_4_title }}</h2>
-                <button class="close-modal">&times;</button>
-            </div>
-            <div class="modal-body">
-                {{ project_4_modal_content }}
-            </div>
-        </div>
-    </div>
+    {{ modals }}
 
     <script>
         // Smooth scroll animation with custom easing

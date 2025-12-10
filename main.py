@@ -6,6 +6,7 @@ Build script to generate index.html from template and markdown files.
 import markdown
 import os
 import glob
+import re
 
 
 def parse_project_file(filepath):
@@ -124,10 +125,105 @@ def generate_project_image_html(project_number, project_title):
     return ''
 
 
+def find_section_image(project_number, section_number):
+    """
+    Find an image for a specific section of a project.
+    Looks for files matching pattern: {project_number}-{section_number}.* (png, jpg, jpeg, webp, gif)
+
+    Returns the image path if found, otherwise returns empty string.
+    """
+    image_extensions = ['png', 'jpg', 'jpeg', 'webp', 'gif']
+
+    for ext in image_extensions:
+        pattern = f'./projects/{project_number}-{section_number}.{ext}'
+        matches = glob.glob(pattern)
+        if matches:
+            return matches[0]
+
+    return ''
+
+
+def parse_markdown_sections(markdown_text):
+    """
+    Parse markdown text and split it into sections based on H2 headings (##).
+    Returns a list of tuples: (heading, content)
+    First item is the intro content before any H2 heading.
+    """
+    sections = []
+
+    # Split by H2 headings
+    parts = re.split(r'^## (.+)$', markdown_text, flags=re.MULTILINE)
+
+    # First part is the intro (before any H2)
+    if parts[0].strip():
+        sections.append(('', parts[0].strip()))
+
+    # Process remaining parts in pairs (heading, content)
+    for i in range(1, len(parts), 2):
+        if i + 1 < len(parts):
+            heading = parts[i].strip()
+            content = parts[i + 1].strip()
+            sections.append((heading, content))
+
+    return sections
+
+
+def generate_modal_body(project_number, markdown_content):
+    """
+    Generate modal body HTML with sections and alternating images.
+    Images alternate between left and right for each section.
+    """
+    sections = parse_markdown_sections(markdown_content)
+    html_parts = []
+    image_counter = 1
+
+    for idx, (heading, content) in enumerate(sections):
+        section_html = '<div class="modal-section">'
+
+        # Find image for this section
+        image_path = find_section_image(project_number, image_counter)
+
+        if image_path:
+            # Alternate image position: odd sections = left, even sections = right
+            image_class = 'modal-section-image-left' if idx % 2 == 0 else 'modal-section-image-right'
+            section_html += f'<img src="{image_path}" alt="{heading}" class="{image_class}">'
+            image_counter += 1
+
+        # Add heading if it exists
+        if heading:
+            section_html += f'<h2>{heading}</h2>'
+
+        # Convert markdown content to HTML
+        content_html = markdown.markdown(content)
+        section_html += content_html
+
+        section_html += '</div>'
+        html_parts.append(section_html)
+
+    return '\n'.join(html_parts)
+
+
+def generate_modal_html(modal_template, project_number, project_title, markdown_content):
+    """
+    Generate a complete modal HTML from the modal template.
+    """
+    modal_body = generate_modal_body(project_number, markdown_content)
+
+    # Replace placeholders in modal template
+    modal_html = modal_template.replace('{{ modal_id }}', f'modal-{project_number}')
+    modal_html = modal_html.replace('{{ project_title }}', project_title)
+    modal_html = modal_html.replace('{{ modal_body }}', modal_body)
+
+    return modal_html
+
+
 def main():
-    # Read the template file
+    # Read the template files
     with open('./template/index.html', 'r', encoding='utf-8') as f:
         template_content = f.read()
+
+    with open('./template/modal.html', 'r', encoding='utf-8') as f:
+        modal_template = f.read()
 
     # Read the presentation markdown file
     with open('./presentation.md', 'r', encoding='utf-8') as f:
@@ -139,9 +235,24 @@ def main():
     # Start with the presentation replacement
     output = template_content.replace('{{ presentation }}', html_content)
 
+    # Generate modals HTML
+    all_modals = []
+
     # Parse and replace project data
     for i in range(1, 5):
         project_data = parse_project_file(f'./projects/{i}.md')
+
+        # Read the full markdown content for modal generation
+        with open(f'./projects/{i}.md', 'r', encoding='utf-8') as f:
+            full_markdown = f.read()
+            # Extract content after the title line for modal
+            lines = full_markdown.split('\n')
+            # Skip GitHub link, optional YouTube link, and title
+            modal_markdown = '\n'.join(lines[1:])  # Start from line after GitHub link
+
+        # Generate modal HTML
+        modal_html = generate_modal_html(modal_template, i, project_data['title'], modal_markdown)
+        all_modals.append(modal_html)
 
         # Replace GitHub link
         output = output.replace(f'{{{{ project_{i}_github }}}}', project_data['github'])
@@ -150,9 +261,6 @@ def main():
         output = output.replace(f'{{{{ project_{i}_title }}}}', project_data['title'])
         output = output.replace(f'{{{{ project_{i}_description }}}}', project_data['description'])
 
-        # Replace modal content
-        output = output.replace(f'{{{{ project_{i}_modal_content }}}}', project_data['modal_content'])
-
         # Replace YouTube link placeholder with generated HTML
         youtube_html = generate_youtube_link_html(project_data['youtube'])
         output = output.replace(f'{{{{ project_{i}_youtube_link }}}}', youtube_html)
@@ -160,6 +268,9 @@ def main():
         # Replace image placeholder with generated HTML
         image_html = generate_project_image_html(i, project_data['title'])
         output = output.replace(f'{{{{ project_{i}_image }}}}', image_html)
+
+    # Replace modals placeholder with all generated modals
+    output = output.replace('{{ modals }}', '\n'.join(all_modals))
 
     # Write the output to index.html in the root folder
     with open('./index.html', 'w', encoding='utf-8') as f:
