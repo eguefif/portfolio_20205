@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ name }} - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            display: flex;
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .presentation {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .presentation h1 {
+            margin-bottom: 20px;
+        }
+
+        .bio {
+            white-space: pre-wrap;
+        }
+
+        .projects-grid {
+            flex: 2;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .project-card {
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .project-card h2 {
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .project-card p {
+            margin-bottom: 15px;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .project-links a {
+            text-decoration: none;
+            color: #0066cc;
+            padding: 5px 10px;
+            border: 1px solid #0066cc;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .project-links a:hover {
+            background-color: #0066cc;
+            color: white;
+        }
+
+        /* Responsive layout for screens under 600px */
+        @media (max-width: 600px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Left side: Name and Presentation -->
+        <aside class="presentation">
+            <h1>Emmanuel Guefif</h1>
+            <div class="bio">
+                {{ presentation }}
+            </div>
+        </aside>
+
+        <!-- Right side: Project Cards Grid -->
+        <main class="projects-grid">
+            <!-- Project Card 1 -->
+            <article class="project-card">
+                <h2>{{ project_1_title }}</h2>
+                <p>{{ project_1_description }}</p>
+                <div class="project-links">
+                    <a href="{{ project_1_detail_link }}">View Details</a>
+                    <a href="{{ project_1_github }}" target="_blank">GitHub</a>
+                    {% if project_1_live_link %}
+                    <a href="{{ project_1_live_link }}" target="_blank">Live Demo</a>
+                    {% endif %}
+                </div>
+            </article>
+
+            <!-- Project Card 2 -->
+            <article class="project-card">
+                <h2>{{ project_2_title }}</h2>
+                <p>{{ project_2_description }}</p>
+                <div class="project-links">
+                    <a href="{{ project_2_detail_link }}">View Details</a>
+                    <a href="{{ project_2_github }}" target="_blank">GitHub</a>
+                    {% if project_2_live_link %}
+                    <a href="{{ project_2_live_link }}" target="_blank">Live Demo</a>
+                    {% endif %}
+                </div>
+            </article>
+
+            <!-- Project Card 3 -->
+            <article class="project-card">
+                <h2>{{ project_3_title }}</h2>
+                <p>{{ project_3_description }}</p>
+                <div class="project-links">
+                    <a href="{{ project_3_detail_link }}">View Details</a>
+                    <a href="{{ project_3_github }}" target="_blank">GitHub</a>
+                    {% if project_3_live_link %}
+                    <a href="{{ project_3_live_link }}" target="_blank">Live Demo</a>
+                    {% endif %}
+                </div>
+            </article>
+
+            <!-- Project Card 4 -->
+            <article class="project-card">
+                <h2>{{ project_4_title }}</h2>
+                <p>{{ project_4_description }}</p>
+                <div class="project-links">
+                    <a href="{{ project_4_detail_link }}">View Details</a>
+                    <a href="{{ project_4_github }}" target="_blank">GitHub</a>
+                    {% if project_4_live_link %}
+                    <a href="{{ project_4_live_link }}" target="_blank">Live Demo</a>
+                    {% endif %}
+                </div>
+            </article>
+        </main>
+    </div>
+</body>
+</html>
