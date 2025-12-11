@@ -1,5 +1,40 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
 
+:root {
+    /* Primary Colors */
+    --color-primary: #8b5cf6;
+    --color-primary-dark: #6b46c1;
+    --color-primary-light: #c4b5fd;
+    --color-primary-medium: #a78bfa;
+
+    /* Background Colors */
+    --bg-gradient-start: #0f0c29;
+    --bg-gradient-middle: #1a1340;
+    --bg-gradient-end: #24243e;
+    --bg-overlay-dark: rgba(15, 12, 41, 0.5);
+    --bg-overlay-darker: rgba(30, 20, 50, 0.95);
+    --bg-overlay-card: rgba(40, 30, 60, 0.5);
+    --bg-overlay-card-solid: rgba(40, 30, 60, 0.95);
+
+    /* Text Colors */
+    --text-primary: #d4d4d4;
+    --text-secondary: #e5e5e5;
+    --text-tertiary: #d1d5db;
+    --text-white: white;
+
+    /* Shadow & Overlay Colors */
+    --shadow-black-dark: rgba(0, 0, 0, 0.8);
+    --shadow-black-medium: rgba(0, 0, 0, 0.4);
+    --shadow-primary: rgba(139, 92, 246, 0.4);
+    --shadow-primary-hover: rgba(139, 92, 246, 0.6);
+    --shadow-primary-light: rgba(139, 92, 246, 0.3);
+    --shadow-primary-lighter: rgba(139, 92, 246, 0.2);
+
+    /* Accent Colors */
+    --accent-purple: rgba(88, 28, 135, 0.15);
+    --accent-blue: rgba(59, 130, 246, 0.1);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -11,8 +46,8 @@ body {
     line-height: 1.7;
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, #0f0c29 0%, #1a1340 50%, #24243e 100%);
-    color: #d4d4d4;
+    background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-middle) 50%, var(--bg-gradient-end) 100%);
+    color: var(--text-primary);
     position: relative;
 }
 

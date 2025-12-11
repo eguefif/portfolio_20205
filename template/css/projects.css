@@ -3,7 +3,7 @@
     min-height: 100vh;
     padding: 80px 40px;
     position: relative;
-    background: rgba(15, 12, 41, 0.5);
+    background: var(--bg-overlay-dark);
 }
 
 .projects-container {
@@ -16,9 +16,9 @@
     font-size: 2.5rem;
     font-weight: 600;
     text-align: center;
-    color: #c4b5fd;
+    color: var(--color-primary-light);
     margin-bottom: 60px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    text-shadow: 2px 2px 4px var(--shadow-black-dark);
 }
 
 .projects-grid {
@@ -29,11 +29,11 @@
 }
 
 .project-card {
-    background: rgba(40, 30, 60, 0.5);
+    background: var(--bg-overlay-card);
     padding: 25px;
-    border: 2px solid #8b5cf6;
+    border: 2px solid var(--color-primary);
     border-radius: 12px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 16px var(--shadow-black-medium);
     backdrop-filter: blur(10px);
     transition: all 0.3s ease;
     position: relative;
@@ -45,7 +45,7 @@
 
 .project-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 24px rgba(139, 92, 246, 0.3);
+    box-shadow: 0 8px 24px var(--shadow-primary-light);
 }
 
 /* Fade-in animation timing for project cards */
@@ -71,7 +71,7 @@
     object-fit: cover;
     border-radius: 8px;
     margin-top: 20px;
-    border: 1px solid rgba(139, 92, 246, 0.3);
+    border: 1px solid var(--shadow-primary-light);
 }
 
 .social-icons {
@@ -110,14 +110,14 @@
     margin-bottom: 15px;
     font-size: 1.5rem;
     font-weight: 600;
-    color: #a78bfa;
+    color: var(--color-primary-medium);
     letter-spacing: 0.5px;
     padding-right: 40px;
 }
 
 .project-card p {
     margin-bottom: 20px;
-    color: #d1d5db;
+    color: var(--text-tertiary);
     font-size: 1.05rem;
     font-weight: 400;
     line-height: 1.7;

@@ -7,6 +7,41 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
 
+:root {
+    /* Primary Colors */
+    --color-primary: #8b5cf6;
+    --color-primary-dark: #6b46c1;
+    --color-primary-light: #c4b5fd;
+    --color-primary-medium: #a78bfa;
+
+    /* Background Colors */
+    --bg-gradient-start: #0f0c29;
+    --bg-gradient-middle: #1a1340;
+    --bg-gradient-end: #24243e;
+    --bg-overlay-dark: rgba(15, 12, 41, 0.5);
+    --bg-overlay-darker: rgba(30, 20, 50, 0.95);
+    --bg-overlay-card: rgba(40, 30, 60, 0.5);
+    --bg-overlay-card-solid: rgba(40, 30, 60, 0.95);
+
+    /* Text Colors */
+    --text-primary: #d4d4d4;
+    --text-secondary: #e5e5e5;
+    --text-tertiary: #d1d5db;
+    --text-white: white;
+
+    /* Shadow & Overlay Colors */
+    --shadow-black-dark: rgba(0, 0, 0, 0.8);
+    --shadow-black-medium: rgba(0, 0, 0, 0.4);
+    --shadow-primary: rgba(139, 92, 246, 0.4);
+    --shadow-primary-hover: rgba(139, 92, 246, 0.6);
+    --shadow-primary-light: rgba(139, 92, 246, 0.3);
+    --shadow-primary-lighter: rgba(139, 92, 246, 0.2);
+
+    /* Accent Colors */
+    --accent-purple: rgba(88, 28, 135, 0.15);
+    --accent-blue: rgba(59, 130, 246, 0.1);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -18,8 +53,8 @@ body {
     line-height: 1.7;
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, #0f0c29 0%, #1a1340 50%, #24243e 100%);
-    color: #d4d4d4;
+    background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-middle) 50%, var(--bg-gradient-end) 100%);
+    color: var(--text-primary);
     position: relative;
 }
 
@@ -47,8 +82,8 @@ html {
     padding: 60px 40px;
     position: relative;
     background-image:
-        radial-gradient(circle at 20% 50%, rgba(88, 28, 135, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+        radial-gradient(circle at 20% 50%, var(--accent-purple) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, var(--accent-blue) 0%, transparent 50%);
 }
 
 .hero-main {
@@ -69,8 +104,8 @@ html {
     height: 300px;
     border-radius: 50%;
     object-fit: cover;
-    border: 4px solid #8b5cf6;
-    box-shadow: 0 8px 32px rgba(139, 92, 246, 0.4);
+    border: 4px solid var(--color-primary);
+    box-shadow: 0 8px 32px var(--shadow-primary);
 }
 
 .hero-content {
@@ -83,14 +118,14 @@ html {
     font-size: 3.5rem;
     font-weight: 700;
     margin-bottom: 30px;
-    color: #c4b5fd;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    color: var(--color-primary-light);
+    text-shadow: 2px 2px 8px var(--shadow-black-dark);
     letter-spacing: 1px;
     text-align: left;
 }
 
 .bio {
-    color: #e5e5e5;
+    color: var(--text-secondary);
     font-size: 1.2rem;
     font-weight: 400;
     line-height: 2;
@@ -133,23 +168,23 @@ html {
 .scroll-button {
     display: inline-block;
     padding: 16px 40px;
-    background: linear-gradient(135deg, #8b5cf6 0%, #6b46c1 100%);
-    color: white;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    color: var(--text-white);
     text-decoration: none;
     border-radius: 50px;
     font-size: 1.1rem;
     font-weight: 600;
     letter-spacing: 0.5px;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 20px rgba(139, 92, 246, 0.4);
+    box-shadow: 0 4px 20px var(--shadow-primary);
     border: 2px solid transparent;
     cursor: pointer;
 }
 
 .scroll-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 30px rgba(139, 92, 246, 0.6);
-    border-color: #c4b5fd;
+    box-shadow: 0 6px 30px var(--shadow-primary-hover);
+    border-color: var(--color-primary-light);
 }
 
 /* Responsive layout for hero section */
@@ -185,7 +220,7 @@ html {
     min-height: 100vh;
     padding: 80px 40px;
     position: relative;
-    background: rgba(15, 12, 41, 0.5);
+    background: var(--bg-overlay-dark);
 }
 
 .projects-container {
@@ -198,9 +233,9 @@ html {
     font-size: 2.5rem;
     font-weight: 600;
     text-align: center;
-    color: #c4b5fd;
+    color: var(--color-primary-light);
     margin-bottom: 60px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    text-shadow: 2px 2px 4px var(--shadow-black-dark);
 }
 
 .projects-grid {
@@ -211,11 +246,11 @@ html {
 }
 
 .project-card {
-    background: rgba(40, 30, 60, 0.5);
+    background: var(--bg-overlay-card);
     padding: 25px;
-    border: 2px solid #8b5cf6;
+    border: 2px solid var(--color-primary);
     border-radius: 12px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 16px var(--shadow-black-medium);
     backdrop-filter: blur(10px);
     transition: all 0.3s ease;
     position: relative;
@@ -227,7 +262,7 @@ html {
 
 .project-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 24px rgba(139, 92, 246, 0.3);
+    box-shadow: 0 8px 24px var(--shadow-primary-light);
 }
 
 /* Fade-in animation timing for project cards */
@@ -253,7 +288,7 @@ html {
     object-fit: cover;
     border-radius: 8px;
     margin-top: 20px;
-    border: 1px solid rgba(139, 92, 246, 0.3);
+    border: 1px solid var(--shadow-primary-light);
 }
 
 .social-icons {
@@ -292,14 +327,14 @@ html {
     margin-bottom: 15px;
     font-size: 1.5rem;
     font-weight: 600;
-    color: #a78bfa;
+    color: var(--color-primary-medium);
     letter-spacing: 0.5px;
     padding-right: 40px;
 }
 
 .project-card p {
     margin-bottom: 20px;
-    color: #d1d5db;
+    color: var(--text-tertiary);
     font-size: 1.05rem;
     font-weight: 400;
     line-height: 1.7;
@@ -327,7 +362,7 @@ html {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: var(--shadow-black-dark);
     backdrop-filter: blur(5px);
     animation: fadeIn 0.3s ease;
 }
@@ -340,15 +375,15 @@ html {
 }
 
 .modal-content {
-    background: linear-gradient(135deg, rgba(30, 20, 50, 0.95) 0%, rgba(40, 30, 60, 0.95) 100%);
+    background: linear-gradient(135deg, var(--bg-overlay-darker) 0%, var(--bg-overlay-card-solid) 100%);
     padding: 40px;
-    border: 2px solid #8b5cf6;
+    border: 2px solid var(--color-primary);
     border-radius: 20px;
     max-width: 900px;
     max-height: 90vh;
     overflow-y: auto;
     position: relative;
-    box-shadow: 0 10px 50px rgba(139, 92, 246, 0.3);
+    box-shadow: 0 10px 50px var(--shadow-primary-light);
     animation: slideUp 0.3s ease;
 }
 
@@ -374,20 +409,20 @@ html {
     align-items: center;
     margin-bottom: 30px;
     padding-bottom: 20px;
-    border-bottom: 2px solid rgba(139, 92, 246, 0.3);
+    border-bottom: 2px solid var(--shadow-primary-light);
 }
 
 .modal-header h2 {
     font-family: 'Poppins', sans-serif;
     font-size: 2rem;
-    color: #c4b5fd;
+    color: var(--color-primary-light);
     margin: 0;
 }
 
 .close-modal {
     background: none;
     border: none;
-    color: #c4b5fd;
+    color: var(--color-primary-light);
     font-size: 2rem;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -401,18 +436,18 @@ html {
 }
 
 .close-modal:hover {
-    background: rgba(139, 92, 246, 0.2);
+    background: var(--shadow-primary-lighter);
     transform: rotate(90deg);
 }
 
 .modal-body {
-    color: #e5e5e5;
+    color: var(--text-secondary);
     line-height: 1.8;
 }
 
 .modal-body h2 {
     font-family: 'Poppins', sans-serif;
-    color: #a78bfa;
+    color: var(--color-primary-medium);
     font-size: 1.5rem;
     margin-top: 30px;
     margin-bottom: 15px;
@@ -420,7 +455,7 @@ html {
 
 .modal-body h3 {
     font-family: 'Poppins', sans-serif;
-    color: #a78bfa;
+    color: var(--color-primary-medium);
     font-size: 1.2rem;
     margin-top: 20px;
     margin-bottom: 10px;
@@ -451,7 +486,7 @@ html {
     margin-right: 20px;
     margin-bottom: 15px;
     border-radius: 8px;
-    border: 1px solid rgba(139, 92, 246, 0.3);
+    border: 1px solid var(--shadow-primary-light);
 }
 
 .modal-section-image-right {
@@ -460,7 +495,7 @@ html {
     margin-left: 20px;
     margin-bottom: 15px;
     border-radius: 8px;
-    border: 1px solid rgba(139, 92, 246, 0.3);
+    border: 1px solid var(--shadow-primary-light);
 }
 
     </style>
