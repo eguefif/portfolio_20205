@@ -236,6 +236,29 @@ def main():
     with open('./template/modal.html', 'r', encoding='utf-8') as f:
         modal_template = f.read()
 
+    with open('./template/hero.html', 'r', encoding='utf-8') as f:
+        hero_template = f.read()
+
+    with open('./template/projects.html', 'r', encoding='utf-8') as f:
+        projects_template = f.read()
+
+    # Read CSS files
+    with open('./template/css/base.css', 'r', encoding='utf-8') as f:
+        base_css = f.read()
+
+    with open('./template/css/hero.css', 'r', encoding='utf-8') as f:
+        hero_css = f.read()
+
+    with open('./template/css/projects.css', 'r', encoding='utf-8') as f:
+        projects_css = f.read()
+
+    with open('./template/css/modal.css', 'r', encoding='utf-8') as f:
+        modal_css = f.read()
+
+    # Read JavaScript file
+    with open('./template/js/main.js', 'r', encoding='utf-8') as f:
+        javascript = f.read()
+
     # Read the presentation markdown file
     with open('./presentation.md', 'r', encoding='utf-8') as f:
         markdown_content = f.read()
@@ -243,8 +266,19 @@ def main():
     # Convert presentation markdown to HTML
     html_content = markdown.markdown(markdown_content)
 
-    # Start with the presentation replacement
-    output = template_content.replace('{{ presentation }}', html_content)
+    # Combine all CSS
+    all_css = f"{base_css}\n\n{hero_css}\n\n{projects_css}\n\n{modal_css}"
+
+    # Start with template replacements
+    output = template_content.replace('{{ css }}', all_css)
+    output = output.replace('{{ javascript }}', javascript)
+
+    # Replace hero section with template
+    hero_html = hero_template.replace('{{ presentation }}', html_content)
+    output = output.replace('{{ hero }}', hero_html)
+
+    # Replace projects section with template (will be filled in later)
+    output = output.replace('{{ projects }}', projects_template)
 
     # Generate modals HTML
     all_modals = []
