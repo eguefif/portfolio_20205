@@ -13,33 +13,33 @@ from src.html_utils import generate_youtube_link_html
 
 def main():
     # Read the template files
-    with open('./template/index.html', 'r', encoding='utf-8') as f:
+    with open('./templates/index.html', 'r', encoding='utf-8') as f:
         main_template = f.read()
 
-    with open('./template/modal.html', 'r', encoding='utf-8') as f:
+    with open('./templates/modal.html', 'r', encoding='utf-8') as f:
         modal_template = f.read()
 
-    with open('./template/hero.html', 'r', encoding='utf-8') as f:
+    with open('./templates/hero.html', 'r', encoding='utf-8') as f:
         hero_template = f.read()
 
-    with open('./template/projects.html', 'r', encoding='utf-8') as f:
+    with open('./templates/projects.html', 'r', encoding='utf-8') as f:
         projects_template = f.read()
 
     # Read CSS files
-    with open('./template/css/base.css', 'r', encoding='utf-8') as f:
+    with open('./templates/css/base.css', 'r', encoding='utf-8') as f:
         base_css = f.read()
 
-    with open('./template/css/hero.css', 'r', encoding='utf-8') as f:
+    with open('./templates/css/hero.css', 'r', encoding='utf-8') as f:
         hero_css = f.read()
 
-    with open('./template/css/projects.css', 'r', encoding='utf-8') as f:
+    with open('./templates/css/projects.css', 'r', encoding='utf-8') as f:
         projects_css = f.read()
 
-    with open('./template/css/modal.css', 'r', encoding='utf-8') as f:
+    with open('./templates/css/modal.css', 'r', encoding='utf-8') as f:
         modal_css = f.read()
 
     # Read JavaScript file
-    with open('./template/js/main.js', 'r', encoding='utf-8') as f:
+    with open('./templates/js/main.js', 'r', encoding='utf-8') as f:
         javascript = f.read()
 
     # Read the presentation markdown file

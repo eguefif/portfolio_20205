@@ -104,8 +104,8 @@ html {
     height: 300px;
     border-radius: 50%;
     object-fit: cover;
-    border: 4px solid var(--color-primary);
-    box-shadow: 0 8px 32px var(--shadow-primary);
+    border: 1px solid var(--color-primary);
+    box-shadow: 0 4px 20px var(--shadow-primary);
 }
 
 .hero-content {
@@ -254,15 +254,13 @@ html {
     backdrop-filter: blur(10px);
     transition: all 0.3s ease;
     position: relative;
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 0.6s ease forwards;
+    opacity: 1;
     cursor: pointer;
 }
 
 .project-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 24px var(--shadow-primary-light);
+    transform: scale(1.01);
+    box-shadow: 0 12px 32px var(--shadow-primary-light);
 }
 
 /* Fade-in animation timing for project cards */
