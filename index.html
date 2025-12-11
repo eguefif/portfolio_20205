@@ -247,7 +247,7 @@ html {
 
 .project-card {
     background: var(--bg-overlay-card);
-    padding: 25px;
+    padding: 20px;
     border: 2px solid var(--color-primary);
     border-radius: 12px;
     box-shadow: 0 4px 16px var(--shadow-black-medium);
@@ -284,10 +284,10 @@ html {
 
 .project-image {
     width: 100%;
-    height: 200px;
+    height: 120px;
     object-fit: cover;
     border-radius: 8px;
-    margin-top: 20px;
+    margin-top: 15px;
     border: 1px solid var(--shadow-primary-light);
 }
 
@@ -324,8 +324,8 @@ html {
 
 .project-card h2 {
     font-family: 'Poppins', sans-serif;
-    margin-bottom: 15px;
-    font-size: 1.5rem;
+    margin-bottom: 10px;
+    font-size: 1.4rem;
     font-weight: 600;
     color: var(--color-primary-medium);
     letter-spacing: 0.5px;
@@ -333,11 +333,16 @@ html {
 }
 
 .project-card p {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     color: var(--text-tertiary);
     font-size: 1.05rem;
     font-weight: 400;
-    line-height: 1.7;
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /* Responsive layout for projects section */
