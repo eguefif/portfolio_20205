@@ -1,0 +1,59 @@
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
+        <div class="projects-container">
+            <h2 class="projects-title">My Projects</h2>
+            <div class="projects-grid">
+                <!-- Project Card 1 -->
+                <article class="project-card" data-modal="modal-1">
+                    <div class="social-icons">
+                        {{ project_1_youtube_link }}
+                        <a href="{{ project_1_github }}" target="_blank" class="github-link" onclick="event.stopPropagation()">
+                            <img src="images/github-mark.svg" alt="GitHub">
+                        </a>
+                    </div>
+                    <h2>{{ project_1_title }}</h2>
+                    <p>{{ project_1_description }}</p>
+                    {{ project_1_image }}
+                </article>
+
+                <!-- Project Card 2 -->
+                <article class="project-card" data-modal="modal-2">
+                    <div class="social-icons">
+                        {{ project_2_youtube_link }}
+                        <a href="{{ project_2_github }}" target="_blank" class="github-link" onclick="event.stopPropagation()">
+                            <img src="images/github-mark.svg" alt="GitHub">
+                        </a>
+                    </div>
+                    <h2>{{ project_2_title }}</h2>
+                    <p>{{ project_2_description }}</p>
+                    {{ project_2_image }}
+                </article>
+
+                <!-- Project Card 3 -->
+                <article class="project-card" data-modal="modal-3">
+                    <div class="social-icons">
+                        {{ project_3_youtube_link }}
+                        <a href="{{ project_3_github }}" target="_blank" class="github-link" onclick="event.stopPropagation()">
+                            <img src="images/github-mark.svg" alt="GitHub">
+                        </a>
+                    </div>
+                    <h2>{{ project_3_title }}</h2>
+                    <p>{{ project_3_description }}</p>
+                    {{ project_3_image }}
+                </article>
+
+                <!-- Project Card 4 -->
+                <article class="project-card" data-modal="modal-4">
+                    <div class="social-icons">
+                        {{ project_4_youtube_link }}
+                        <a href="{{ project_4_github }}" target="_blank" class="github-link" onclick="event.stopPropagation()">
+                            <img src="images/github-mark.svg" alt="GitHub">
+                        </a>
+                    </div>
+                    <h2>{{ project_4_title }}</h2>
+                    <p>{{ project_4_description }}</p>
+                    {{ project_4_image }}
+                </article>
+            </div>
+        </div>
+    </section>
