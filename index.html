@@ -563,7 +563,7 @@ html {
             </div>
             <div class="hero-buttons">
                 <a href="#projects" class="scroll-button">View My Projects</a>
-                <a href="cv-guefif.pdf" class="resume-button" download aria-label="Download Resume">Download Resume</a>
+                
             </div>
         </div>
         <div class="hero-content">
@@ -606,7 +606,7 @@ html {
                         </a>
                     </div>
                     <h2>Rust Mastery Learning Plan</h2>
-                    <p>This project started as a question on Claude. I was struggling to understand an article about Alias XOR mutability. I asked Claude if writing an async runtime would help me understand this concept. It did not. I asked what could be a better project. As a teacher, I know that we cannot learn something if we don't have the prerequisites. As I was asking what the prerequisites were for each project, I reached a point where I could tell I knew how to do it. I ended up with a complete plan toward Rust mastery. It's composed of projects and book references.</p>
+                    <p>This project started as a question on Claude. I was struggling to understand an article about Alias XOR mutability. I asked Claude if writing an async runtime would help me understand this concept. Apparently, it does not.</p>
                     
                 </article>
 
@@ -619,7 +619,7 @@ html {
                         </a>
                     </div>
                     <h2>GameBoy Emulator</h2>
-                    <p>This was my first Rust project. I first emulate the CPU, then the clock, the interrupt and finally the Pixel Processing Unit (PPU). I've learned so much about the interaction of the machine and low level program that handles interruptions.</p>
+                    <p>This was my first Rust project. I first emulated the CPU, then the clock, the interrupt and finally the Pixel Processing Unit (PPU). I've learned so much about the interaction of the machine and low-level programs that handle interruptions.</p>
                     <img src="./projects/3-1.webp" alt="GameBoy Emulator" class="project-image">
                 </article>
 
@@ -632,7 +632,7 @@ html {
                         </a>
                     </div>
                     <h2>Ray Tracer</h2>
-                    <p>This was the last C project in 42 Common Core. I worked with Maxime to make this one work. We created a Ray Trace capable of drawing sphere, cylinder, plane and triangle.</p>
+                    <p>This was the last C project in 42 Common Core. I worked with Maxime to make this one work. We created a Ray Tracer capable of drawing sphere, cylinder, plane and triangle.</p>
                     <img src="./projects/4-1.png" alt="Ray Tracer" class="project-image">
                 </article>
             </div>
@@ -687,10 +687,11 @@ Anytime I merge a branch on master, the new version gets automatically deployed 
                 <button class="close-modal" aria-label="Close modal">&times;</button>
             </div>
             <div class="modal-body">
-                <div class="modal-section"><p>This project started as a question on Claude. I was struggling to understand an article about Alias XOR mutability. I asked Claude if writing an async runtime would help me understand this concept. It did not. I asked what could be a better project. As a teacher, I know that we cannot learn something if we don't have the prerequisites. As I was asking what the prerequisites were for each project, I reached a point where I could tell I knew how to do it. I ended up with a complete plan toward Rust mastery. It's composed of projects and book references. </p>
-<p>This is a generative AI plan. One could think this is not reliable. Here comes the best part. It is my job to check if the plan is good or not and to improve it. This work of analyzing what the plan is with regard to my experience is the most beneficial aspect of this project. In the end, I learned Rust in a way that will stay.</p>
+                <div class="modal-section"><p>This project started as a question on Claude. I was struggling to understand an article about Alias XOR mutability. I asked Claude if writing an async runtime would help me understand this concept. Apparently, it does not. </p>
+<p>I asked what could be a better project. As a teacher, I know that we cannot learn something if we don't have the prerequisites. I kept asking until I filled the gap between my current knowledge and what I aimed for. I ended up with a complete plan toward Rust mastery. It's composed of projects and book references. </p>
+<p>This is a generative AI plan. One could think this is not reliable. Here comes the best part. It is my job to check if the plan is good or not and to improve it. This work of analyzing what the plan is with regard to my experience is the most beneficial aspect of this project. In the end, I learned Rust in a way that will last.</p>
 <h2>Goals</h2>
-<p>I created this project to learn three skills:
+<p>I created this project to learn six skills:
 * Iterator in Rust
 * Parsing
 * Memory allocation
@@ -698,10 +699,10 @@ Anytime I merge a branch on master, the new version gets automatically deployed 
 * Asynchronous programming in Rust
 * Concurrency in Rust</p>
 <h2>Spotlights</h2>
-<p>[Paragraph about what you're particularly proud of in this project - the most challenging or interesting aspect you accomplished]</p>
+<p>For what I have done so far, the JSON parser was very interesting. It's not my first time doing a JSON parser, but this time I managed to do it with a simple and easy to use interface.</p>
 <h2>Current Status</h2>
 <p>The iterator part is done. The JSON parser is almost done. I still have to write the serialization logic.</p>
-<p>It's in pause while I am working on Advent Of Code 2025 in Rust.</p>
+<p>It's on pause while I am working on Advent of Code 2025 in Rust.</p>
 <h2>Lessons Learned</h2>
 <p>Writing the iterator struct, I learned about lifetime management. The collect-like logic taught me about generics, lifetimes and associated types.</p></div>
             </div>
@@ -721,7 +722,7 @@ Anytime I merge a branch on master, the new version gets automatically deployed 
                 <button class="close-modal" aria-label="Close modal">&times;</button>
             </div>
             <div class="modal-body">
-                <div class="modal-section"><img src="./projects/3-1.webp" alt="" class="modal-section-image-left"><p>This was my first Rust project. I first emulate the CPU, then the clock, the interrupt and finally the Pixel Processing Unit (PPU). I've learned so much about the interaction of the machine and low level program that handles interruptions.</p>
+                <div class="modal-section"><img src="./projects/3-1.webp" alt="" class="modal-section-image-left"><p>This was my first Rust project. I first emulated the CPU, then the clock, the interrupt and finally the Pixel Processing Unit (PPU). I've learned so much about the interaction of the machine and low-level programs that handle interruptions.</p>
 <h2>Goals</h2>
 <p>I created this project to learn three skills:
 * Rust programming fundamentals including ownership, borrowing, and the type system
@@ -729,9 +730,9 @@ Anytime I merge a branch on master, the new version gets automatically deployed 
 <h2>Spotlights</h2>
 <p>I am particularly proud of getting Tetris to run fully playable. Achieving this milestone required implementing accurate CPU instruction execution, proper timing cycles, correct PPU behavior for tile-based graphics, and synchronized screen refresh rates. Seeing the iconic Tetris pieces fall smoothly on the screen for the first time was incredibly rewarding and confirmed that all the core systems were working together correctly.</p>
 <h2>Current State</h2>
-<p>The emulator is only able to render Tetris correctly. Other game does not work. I know that I have to rework the ppu emulation to allow other game to work. The sound is not working either.</p>
+<p>The emulator is only able to render Tetris correctly. Other games do not work. I need to rework the PPU emulation to allow other games to work. The sound is not working either.</p>
 <h2>Lessons Learned</h2>
-<p>This project was a deep dive into low level programming. I learned about memory representation, machine architecture, assembly and clocks. I also learned a lot about reading someone's code. There is not a lot of documentation about how the GameBoy works. Most of the emulator author are electronic geek that reversed engineer the chips and write the emulator. The documentation is in their code. It was insightful.</p></div>
+<p>This project was a deep dive into low-level programming. I learned about memory representation, machine architecture, assembly and clocks. I also learned a lot about reading others' code. There isn't much documentation about how the GameBoy works. Most of the emulator authors are electronics geeks who reverse-engineered the chips and wrote the emulator. The documentation is in their code. It was insightful.</p></div>
             </div>
         </div>
     </div>
@@ -749,16 +750,16 @@ Anytime I merge a branch on master, the new version gets automatically deployed 
                 <button class="close-modal" aria-label="Close modal">&times;</button>
             </div>
             <div class="modal-body">
-                <div class="modal-section"><img src="./projects/4-1.png" alt="" class="modal-section-image-left"><p>This was the last C project in 42 Common Core. I worked with Maxime to make this one work. We created a Ray Trace capable of drawing sphere, cylinder, plane and triangle.</p>
+                <div class="modal-section"><img src="./projects/4-1.png" alt="" class="modal-section-image-left"><p>This was the last C project in 42 Common Core. I worked with Maxime to make this one work. We created a Ray Tracer capable of drawing sphere, cylinder, plane and triangle.</p>
 <h2>Goals</h2>
 <p>This project goals were:
-* Implements in C a Ray Tracer with all the maths and physics behind rendering 
+* Implement in C a Ray Tracer with all the maths and physics behind rendering
 * Use multi-threading to optimize.
-* Implements texture mapping on object.</p>
+* Implement texture mapping on objects.</p>
 <h2>Spotlights</h2>
-<p>This RayTracer is able to draw triangle. Therefore, it can draw all figure composed by triangle. This was not the most difficult thing to do. There is plenty of literature on how to know if a ray is crossing a triangle but the end view is impressive.</p>
+<p>This RayTracer is able to draw triangles. Therefore, it can draw all figures composed of triangles. This was not the most difficult thing to do. There is plenty of literature on how to know if a ray is crossing a triangle but the end view is impressive.</p>
 <h2>Lessons Learned</h2>
-<p>The teamwork was interesting on this one. At this point in the curriculum, I was used to worked with Maxime. We already worked on a couple of project and we knew how to do that. We were pair programming a lot and use TDD whenever we could. On this project though, pair programming didn't work. As we were understanding the maths behind that at the different pace, we only figured out together how to draw a plane. When we both understood the concept behind Ray tracing, we decided to split the work. He was much better than me to understand the maths behind. Working this way gave me some time to familiarize with the concept.</p></div>
+<p>The teamwork was interesting on this one. At this point in the curriculum, I was used to working with Maxime. We had already worked on a couple of projects and we knew how to do this. We were pair programming a lot and used TDD whenever we could. On this project though, pair programming didn't work. As we were understanding the maths behind that at different paces, we only figured out together how to draw a plane. When we both understood the concept behind Ray tracing, we decided to split the work. He was much better than me at understanding the maths behind. Working this way gave me some time to familiarize with the concept.</p></div>
             </div>
         </div>
     </div>

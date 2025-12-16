@@ -10,6 +10,7 @@ from src.parsers import parse_project_file
 from src.images import generate_project_image_html
 from src.modals import generate_modal_html
 from src.html_utils import generate_youtube_link_html
+from src.publisher import publish_to_website
 
 
 def main():
@@ -17,6 +18,8 @@ def main():
     parser = argparse.ArgumentParser(description='Build portfolio index.html')
     parser.add_argument('--resume', action='store_true',
                         help='Add resume download button to the page')
+    parser.add_argument('--publish', action='store_true',
+                        help='Copy index.html to personal website and commit/push changes')
     args = parser.parse_args()
 
     # Read the template files
@@ -112,6 +115,11 @@ def main():
         f.write(output)
 
     print("Successfully generated index.html")
+
+    # Publish to personal website if --publish flag is provided
+    if args.publish:
+        publish_to_website('./index.html', '/home/eguefif/lab/personal_website')
+        print("Successfully published to personal website")
 
 
 if __name__ == '__main__':
