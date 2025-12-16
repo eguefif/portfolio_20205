@@ -8,16 +8,18 @@ def find_project_image(project_number):
     Find the first image for a project in the projects folder.
     Looks for files matching pattern: {project_number}-1.* (png, jpg, jpeg, webp, gif)
 
-    Returns the image path if found, otherwise returns empty string.
+    Returns the image path for use in HTML (using /images/ path) if found, otherwise returns empty string.
     """
     image_extensions = ['png', 'jpg', 'jpeg', 'webp', 'gif']
 
     for ext in image_extensions:
-        # Look for pattern like "1-1.png", "2-1.jpg", etc.
+        # Look for pattern like "1-1.png", "2-1.jpg", etc. in projects directory
         pattern = f'./projects/{project_number}-1.{ext}'
         matches = glob.glob(pattern)
         if matches:
-            return matches[0]
+            # Return path relative to images directory for HTML
+            filename = matches[0].split('/')[-1]
+            return f'images/{filename}'
 
     return ''
 
@@ -39,7 +41,7 @@ def find_section_image(project_number, section_number):
     Find an image for a specific section of a project.
     Looks for files matching pattern: {project_number}-{section_number}.* (png, jpg, jpeg, webp, gif)
 
-    Returns the image path if found, otherwise returns empty string.
+    Returns the image path for use in HTML (using /images/ path) if found, otherwise returns empty string.
     """
     image_extensions = ['png', 'jpg', 'jpeg', 'webp', 'gif']
 
@@ -47,6 +49,8 @@ def find_section_image(project_number, section_number):
         pattern = f'./projects/{project_number}-{section_number}.{ext}'
         matches = glob.glob(pattern)
         if matches:
-            return matches[0]
+            # Return path relative to images directory for HTML
+            filename = matches[0].split('/')[-1]
+            return f'images/{filename}'
 
     return ''

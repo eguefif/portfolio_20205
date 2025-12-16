@@ -5,12 +5,37 @@ Build script to generate index.html from template and markdown files.
 
 import argparse
 import markdown
+import shutil
+from pathlib import Path
 
 from src.parsers import parse_project_file
 from src.images import generate_project_image_html
 from src.modals import generate_modal_html
 from src.html_utils import generate_youtube_link_html
 from src.publisher import publish_to_website
+
+
+def copy_project_images():
+    """Copy all image files from projects/ directory to images/ directory."""
+    projects_dir = Path('./projects')
+    images_dir = Path('./images')
+
+    # Ensure images directory exists
+    images_dir.mkdir(exist_ok=True)
+
+    # Common image extensions
+    image_extensions = {'.png', '.jpg', '.jpeg', '.webp', '.gif', '.svg'}
+
+    # Copy all image files from projects to images
+    copied_count = 0
+    for file_path in projects_dir.iterdir():
+        if file_path.is_file() and file_path.suffix.lower() in image_extensions:
+            target_path = images_dir / file_path.name
+            shutil.copy2(file_path, target_path)
+            copied_count += 1
+
+    if copied_count > 0:
+        print(f"Copied {copied_count} image(s) from projects/ to images/")
 
 
 def main():
@@ -21,6 +46,9 @@ def main():
     parser.add_argument('--publish', action='store_true',
                         help='Copy index.html to personal website and commit/push changes')
     args = parser.parse_args()
+
+    # Copy project images to images directory
+    copy_project_images()
 
     # Read the template files
     with open('./templates/index.html', 'r', encoding='utf-8') as f:

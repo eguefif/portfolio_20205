@@ -10,7 +10,7 @@ from pathlib import Path
 
 def publish_to_website(source_file: str, target_dir: str):
     """
-    Copy index.html to personal website directory and commit/push changes.
+    Copy index.html, images directory, and resume to personal website directory and commit/push changes.
 
     Args:
         source_file: Path to the source index.html file
@@ -31,6 +31,22 @@ def publish_to_website(source_file: str, target_dir: str):
     target_file = target_path / "index.html"
     shutil.copy2(source_path, target_file)
     print(f"Copied {source_file} to {target_file}")
+
+    # Copy images directory to target directory
+    source_images_dir = source_path.parent / "images"
+    if source_images_dir.exists():
+        target_images_dir = target_path / "images"
+        if target_images_dir.exists():
+            shutil.rmtree(target_images_dir)
+        shutil.copytree(source_images_dir, target_images_dir)
+        print(f"Copied images directory to {target_images_dir}")
+
+    # Copy resume PDF to target directory
+    source_resume = source_path.parent / "cv-guefif.pdf"
+    if source_resume.exists():
+        target_resume = target_path / "cv-guefif.pdf"
+        shutil.copy2(source_resume, target_resume)
+        print(f"Copied resume to {target_resume}")
 
     # Generate timestamp for commit message
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
