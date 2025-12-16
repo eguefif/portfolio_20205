@@ -30,39 +30,84 @@ document.querySelector('.scroll-button').addEventListener('click', function(e) {
     requestAnimationFrame(animation);
 });
 
-// Hide scroll indicator on scroll
-window.addEventListener('scroll', function() {
-    const scrollIndicator = document.querySelector('.scroll-indicator');
-    if (window.scrollY > 100) {
-        scrollIndicator.style.opacity = '0';
-    } else {
-        scrollIndicator.style.opacity = '0.5';
-    }
-});
-
 // Modal functionality
 const projectCards = document.querySelectorAll('.project-card');
 const modals = document.querySelectorAll('.modal');
 const closeButtons = document.querySelectorAll('.close-modal');
+let lastFocusedElement = null;
+
+function trapFocus(modal) {
+  const focusableElements = getFocusableElements(modal);
+  const first = focusableElements[0];
+  const last = focusableElements[focusableElements.length - 1];
+
+  // Wait for the end of animation to set focus on close button
+  setTimeout(() => {
+    first.focus();
+  }, 250);
+
+  modal.addEventListener('keydown', function (e) {
+    if (e.key !== 'Tab') return;
+
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  });
+}
+
+function getFocusableElements(container) {
+  return container.querySelectorAll(
+    'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])'
+  );
+}
 
 // Open modal when clicking on project card
 projectCards.forEach(card => {
-    card.addEventListener('click', function() {
-        const modalId = this.getAttribute('data-modal');
+    const openModal = function (target) {
+        const modalId = target.getAttribute('data-modal');
         const modal = document.getElementById(modalId);
-        if (modal) {
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Prevent scrolling
-        }
+        lastFocusedElement = document.activeElement;
+
+        if (!modal) return;
+
+        modal.classList.add('active');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+        trapFocus(modal);
+        //const focusable = getFocusableElements(modal);
+        //  if (focusable.length) {
+        //    focusable[0].focus();
+        //  }
+    };
+
+    card.addEventListener('click', (e) => openModal(card));
+    card.addEventListener('keydown', (e) => {
+      if (e.key !== "Tab") {
+        openModal(card);
+      }
     });
 });
+
+function closeModal(modal) {
+  modal.classList.remove('active');
+  modal.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+
+  if (lastFocusedElement) {
+    lastFocusedElement.focus();
+  }
+}
+
 
 // Close modal when clicking close button
 closeButtons.forEach(button => {
     button.addEventListener('click', function() {
         const modal = this.closest('.modal');
-        modal.classList.remove('active');
-        document.body.style.overflow = ''; // Restore scrolling
+        closeModal(modal)
     });
 });
 
@@ -70,8 +115,7 @@ closeButtons.forEach(button => {
 modals.forEach(modal => {
     modal.addEventListener('click', function(e) {
         if (e.target === this) {
-            this.classList.remove('active');
-            document.body.style.overflow = ''; // Restore scrolling
+            closeModal(modal)
         }
     });
 });
@@ -80,8 +124,7 @@ modals.forEach(modal => {
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
         modals.forEach(modal => {
-            modal.classList.remove('active');
-            document.body.style.overflow = ''; // Restore scrolling
+            closeModal(modal)
         });
     }
 });

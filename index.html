@@ -28,6 +28,7 @@
     --text-secondary: #4db84d;
     --text-tertiary: #2a9d2a;
     --text-white: #66dd66;
+    --text-black: #113300;
 
     /* Shadow & Overlay Colors - Subtle Green */
     --shadow-black-dark: rgba(0, 0, 0, 0.9);
@@ -93,6 +94,14 @@ html {
     gap: 40px;
     max-width: 1200px;
     margin-bottom: 40px;
+}
+
+.hero-left-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    flex-gap: 24px;
 }
 
 .hero-image {
@@ -168,12 +177,12 @@ html {
 .scroll-button {
     display: inline-block;
     padding: 16px 40px;
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-    color: var(--text-white);
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary-dark) 100%);
+    color: var(--text-black);
     text-decoration: none;
     border-radius: 50px;
     font-size: 1.1rem;
-    font-weight: 600;
+    font-weight: 800;
     letter-spacing: 0.5px;
     transition: all 0.3s ease;
     box-shadow: 0 4px 20px var(--shadow-primary);
@@ -504,36 +513,36 @@ html {
     </style>
 </head>
 <body>
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="hero-main">
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="hero-main">
+        <div class="hero-left-col">
             <div class="hero-image">
                 <img src="emmanuel.jpeg" alt="Emmanuel Guefif">
             </div>
-            <div class="hero-content">
-                <h1>Emmanuel Guefif</h1>
-                <div class="bio">
-                    <p>I'm Emmanuel, a software developer and technology enthusiast.</p>
-<p>Not long ago, I was teaching 4th grade in Victoria, BC, Canada. Now I work as a software developer in a digital book company, and I love what I do.</p>
-<p>My career switch wasn't surprising to those who know me. As a teenager, I learned programming with books on C and PHP, then studied math and computer science at University Lyon 1. Through student organizations, I discovered sociology and became an elementary school teacher. But I never stopped programming as a hobby. Returning to software development was a new start, not starting over.</p>
-<p>I love programming and solving problems. I fast-tracked 42 Québec's common core through dedication and preparation—I'm a self-learner who prefers books and projects over waiting to be taught.</p>
-                </div>
+            <!-- Social Links -->
+            <div class="hero-social-links">
+                <a href="https://www.linkedin.com/in/eguefif" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <img src="images/linkedin.png" alt="LinkedIn">
+                </a>
+                <a href="https://www.github.com/eguefif" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <img src="images/github-mark.svg" alt="GitHub">
+                </a>
+                <!-- Scroll Button -->
+            </div>
+            <a href="#projects" class="scroll-button">View My Projects</a>
+        </div>
+        <div class="hero-content">
+            <h1>Emmanuel Guefif</h1>
+            <div class="bio">
+                <p>Hi, I'm Emmanuel. I program computers for a living, play music for unwinding, and I love building things!</p>
+<p>I created my first program at 14. I decided not to wait for a university teacher. It was a GCD calculator in QBasic. When I got into university, my curiosity drove me to sociology and I ended up working as an elementary school teacher. I wanted to pass on my love for learning to my students and nurture their curiosity!</p>
+<p>I came back to programming after meeting one of my father's students when I was teaching in Victoria, Canada. He was a Python specialist and I was fascinated by what he taught me about programming. I enrolled at 42 Québec, finished the common core studying 50 hours a week, found an internship and right after, a job.</p>
+<p>I know how to learn and I love learning. It's not only about programming but also about what people do in their lives. I have a keen interest in translating real-world problems into software solutions.</p>
             </div>
         </div>
-
-        <!-- Social Links -->
-        <div class="hero-social-links">
-            <a href="https://www.linkedin.com/in/eguefif" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                <img src="images/linkedin.png" alt="LinkedIn">
-            </a>
-            <a href="https://www.github.com/eguefif" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                <img src="images/github-mark.svg" alt="GitHub">
-            </a>
-        </div>
-
-        <!-- Scroll Button -->
-        <a href="#projects" class="scroll-button">View My Projects</a>
-    </section>
+    </div>
+</section>
 
 
     <!-- Projects Section -->
@@ -542,7 +551,7 @@ html {
             <h2 class="projects-title">My Projects</h2>
             <div class="projects-grid">
                 <!-- Project Card 1 -->
-                <article class="project-card" data-modal="modal-1">
+                <article tabindex="0" class="project-card" data-modal="modal-1">
                     <div class="social-icons">
                         
                         <a href="https://github.com/eguefif/grb_amateur" target="_blank" class="github-link" onclick="event.stopPropagation()">
@@ -550,12 +559,12 @@ html {
                         </a>
                     </div>
                     <h2>Gamma Ray Burst Platform</h2>
-                    <p>This platform allows an amateur astronomer to register, get email notification when a Gamma-Ray Burst is detected by the Fermi satellite and post observations.</p>
+                    <p>This platform allows an amateur astronomer to register, get email notifications when a Gamma-Ray Burst is detected by the Fermi satellite and post observations.</p>
                     <img src="./projects/1-1.png" alt="Gamma Ray Burst Platform" class="project-image">
                 </article>
 
                 <!-- Project Card 2 -->
-                <article class="project-card" data-modal="modal-2">
+                <article tabindex="0" class="project-card" data-modal="modal-2">
                     <div class="social-icons">
                         
                         <a href="https://github.com/eguefif/rust_learning" target="_blank" class="github-link" onclick="event.stopPropagation()">
@@ -568,7 +577,7 @@ html {
                 </article>
 
                 <!-- Project Card 3 -->
-                <article class="project-card" data-modal="modal-3">
+                <article tabindex="0" class="project-card" data-modal="modal-3">
                     <div class="social-icons">
                         
                         <a href="https://github.com/eguefif/game_boy_emulator" target="_blank" class="github-link" onclick="event.stopPropagation()">
@@ -581,7 +590,7 @@ html {
                 </article>
 
                 <!-- Project Card 4 -->
-                <article class="project-card" data-modal="modal-4">
+                <article tabindex="0" class="project-card" data-modal="modal-4">
                     <div class="social-icons">
                         
                         <a href="https://github.com/PelletierM/miniRT" target="_blank" class="github-link" onclick="event.stopPropagation()">
@@ -598,16 +607,22 @@ html {
 
 
     <!-- Modals -->
-        <div id="modal-1" class="modal">
+        <div 
+        id="modal-1" 
+        class="modal" 
+        role="dialog"
+        aria-hidden="true"
+        aria-modal="true"
+    >
         <div class="modal-content">
             <div class="modal-header">
                 <h2>Gamma Ray Burst Platform</h2>
-                <button class="close-modal">&times;</button>
+                <button class="close-modal" aria-label="Close modal">&times;</button>
             </div>
             <div class="modal-body">
-                <div class="modal-section"><img src="./projects/1-1.png" alt="" class="modal-section-image-left"><p>This platform allows an amateur astronomer to register, get email notification when a Gamma-Ray Burst is detected by the Fermi satellite and post observations.</p>
+                <div class="modal-section"><img src="./projects/1-1.png" alt="" class="modal-section-image-left"><p>This platform allows an amateur astronomer to register, get email notifications when a Gamma-Ray Burst is detected by the Fermi satellite and post observations.</p>
 <p>The backend is written with FastAPI/Postgres and the Frontend is in Vue.js.</p>
-<p>In terms of infrastructure, I have three compute units and a virtual network on Scaleway. I use Docker Swarm to manage three services: Frontend serving, FastAPI backend and alertSys. Alertsys is a python service that monitors Nasa GCN kafka event bus. When a message is received, AlertSys sends an HTTP request to the backend. The backend registers the alert and notifies users. Postgres is hosted on one of the instances. Everything is behind an Nginx. </p>
+<p>The application is hosted on Scaleway. I use Docker Swarm to manage three services: Frontend serving, FastAPI backend and AlertSys. AlertSys is a Python service that monitors NASA GCN Kafka event bus. When a message is received, AlertSys sends an HTTP request to the backend. The backend registers the alert and notifies users. Postgres is hosted on its own instances. Everything is behind an Nginx. </p>
 <p>The server's ip address is protected by Cloudflare which is used as a reverse proxy.</p>
 <h2>Goals</h2>
 <p>I created this project to learn three skills:
@@ -615,21 +630,27 @@ html {
 * an automated CI/CD with Github Actions, Docker Swarm and Scaleway Cloud.
 * Domain name handling and protection with CloudFlare.</p>
 <h2>Spotlights</h2>
-<p>I am particularly proud of the automated CI/CD. I spent quite some time to make it work. Everything is pretty simple but I had trouble with Cloudflare bot filtering. When the CI passes and the docker images are built, there is a Github Action that sends a deploy request to my server. There is a simple FastAPI with minimum authentication that will launch processes to update Docker Swarm services.
+<p>I am particularly proud of the automated CI/CD. I spent quite some time to make it work. Everything is pretty simple but I had trouble with Cloudflare bot filtering. When the CI passes and the docker images are built, there is a Github Action that sends a deploy request to the server where a simple FastAPI app will launch processes to update Docker Swarm services.
 Anytime I merge a branch on master, the new version gets automatically deployed on my server.</p>
 <h2>Lessons Learned</h2>
-<p>Thanks to this project, I have a better understanding of my current professional project infrastructure that uses Kubernetes and Google Cloud. I know what tasks, instances and pods represent now.</p>
+<p>Thanks to this project, I have a better understanding of my current professional project infrastructure that uses Kubernetes and Google Cloud. I now know what tasks, instances, and pods represent.</p>
 <p>I learned how to implement a secret-based authentication between the backend and AlertSys. They share a common secret and use timestamp encoding to verify authentication.</p>
-<p>Last but not least, I learned about FastAPI. This was a great experience. The simplicity and efficiency of the framework are beautiful. It's easy to add background tasks and dependencies. My project was pretty simple. I chose to organize my app in terms of area (users, alerts, observations). In the book I was reading about FastAPI, they organize in terms of models, services and controllers. Rails organizes the app in terms of models/controllers/views. Django organizes in terms of areas (Apps). I have the feeling that keeping models/controllers and services in one app is what makes more sense. These three components are coupled and I find it easier to have them in one place. I don't have the experience on a big project to know what architecture design is better. This will be my next experimentation.</p></div>
+<p>Last but not least, I learned about FastAPI. This was a great experience. The simplicity and efficiency of the framework are beautiful. It's easy to add background tasks and dependencies. My project was pretty simple. I chose to organize my app by area (users, alerts, observations). In the book I was reading about FastAPI, they organize by models, services, and controllers. Rails organizes apps by models/controllers/views. Django organizes by areas (Apps). I feel that keeping models/controllers and services in one app is what makes more sense. These three components are coupled and I find it easier to have them in one place. I don't have the experience on a big project to know what architecture design is better. This will be my next experimentation.</p></div>
             </div>
         </div>
     </div>
 
-    <div id="modal-2" class="modal">
+    <div 
+        id="modal-2" 
+        class="modal" 
+        role="dialog"
+        aria-hidden="true"
+        aria-modal="true"
+    >
         <div class="modal-content">
             <div class="modal-header">
                 <h2>Rust Mastery Learning Plan</h2>
-                <button class="close-modal">&times;</button>
+                <button class="close-modal" aria-label="Close modal">&times;</button>
             </div>
             <div class="modal-body">
                 <div class="modal-section"><p>This project started as a question on Claude. I was struggling to understand an article about Alias XOR mutability. I asked Claude if writing an async runtime would help me understand this concept. It did not. I asked what could be a better project. As a teacher, I know that we cannot learn something if we don't have the prerequisites. As I was asking what the prerequisites were for each project, I reached a point where I could tell I knew how to do it. I ended up with a complete plan toward Rust mastery. It's composed of projects and book references. </p>
@@ -653,11 +674,17 @@ Anytime I merge a branch on master, the new version gets automatically deployed 
         </div>
     </div>
 
-    <div id="modal-3" class="modal">
+    <div 
+        id="modal-3" 
+        class="modal" 
+        role="dialog"
+        aria-hidden="true"
+        aria-modal="true"
+    >
         <div class="modal-content">
             <div class="modal-header">
                 <h2>GameBoy Emulator</h2>
-                <button class="close-modal">&times;</button>
+                <button class="close-modal" aria-label="Close modal">&times;</button>
             </div>
             <div class="modal-body">
                 <div class="modal-section"><img src="./projects/3-1.webp" alt="" class="modal-section-image-left"><p>This was my first Rust project. I first emulate the CPU, then the clock, the interrupt and finally the Pixel Processing Unit (PPU). I've learned so much about the interaction of the machine and low level program that handles interruptions.</p>
@@ -675,11 +702,17 @@ Anytime I merge a branch on master, the new version gets automatically deployed 
         </div>
     </div>
 
-    <div id="modal-4" class="modal">
+    <div 
+        id="modal-4" 
+        class="modal" 
+        role="dialog"
+        aria-hidden="true"
+        aria-modal="true"
+    >
         <div class="modal-content">
             <div class="modal-header">
                 <h2>Ray Tracer</h2>
-                <button class="close-modal">&times;</button>
+                <button class="close-modal" aria-label="Close modal">&times;</button>
             </div>
             <div class="modal-body">
                 <div class="modal-section"><img src="./projects/4-1.png" alt="" class="modal-section-image-left"><p>This was the last C project in 42 Common Core. I worked with Maxime to make this one work. We created a Ray Trace capable of drawing sphere, cylinder, plane and triangle.</p>
@@ -730,39 +763,84 @@ document.querySelector('.scroll-button').addEventListener('click', function(e) {
     requestAnimationFrame(animation);
 });
 
-// Hide scroll indicator on scroll
-window.addEventListener('scroll', function() {
-    const scrollIndicator = document.querySelector('.scroll-indicator');
-    if (window.scrollY > 100) {
-        scrollIndicator.style.opacity = '0';
-    } else {
-        scrollIndicator.style.opacity = '0.5';
-    }
-});
-
 // Modal functionality
 const projectCards = document.querySelectorAll('.project-card');
 const modals = document.querySelectorAll('.modal');
 const closeButtons = document.querySelectorAll('.close-modal');
+let lastFocusedElement = null;
+
+function trapFocus(modal) {
+  const focusableElements = getFocusableElements(modal);
+  const first = focusableElements[0];
+  const last = focusableElements[focusableElements.length - 1];
+
+  // Wait for the end of animation to set focus on close button
+  setTimeout(() => {
+    first.focus();
+  }, 250);
+
+  modal.addEventListener('keydown', function (e) {
+    if (e.key !== 'Tab') return;
+
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  });
+}
+
+function getFocusableElements(container) {
+  return container.querySelectorAll(
+    'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])'
+  );
+}
 
 // Open modal when clicking on project card
 projectCards.forEach(card => {
-    card.addEventListener('click', function() {
-        const modalId = this.getAttribute('data-modal');
+    const openModal = function (target) {
+        const modalId = target.getAttribute('data-modal');
         const modal = document.getElementById(modalId);
-        if (modal) {
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Prevent scrolling
-        }
+        lastFocusedElement = document.activeElement;
+
+        if (!modal) return;
+
+        modal.classList.add('active');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+        trapFocus(modal);
+        //const focusable = getFocusableElements(modal);
+        //  if (focusable.length) {
+        //    focusable[0].focus();
+        //  }
+    };
+
+    card.addEventListener('click', (e) => openModal(card));
+    card.addEventListener('keydown', (e) => {
+      if (e.key !== "Tab") {
+        openModal(card);
+      }
     });
 });
+
+function closeModal(modal) {
+  modal.classList.remove('active');
+  modal.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+
+  if (lastFocusedElement) {
+    lastFocusedElement.focus();
+  }
+}
+
 
 // Close modal when clicking close button
 closeButtons.forEach(button => {
     button.addEventListener('click', function() {
         const modal = this.closest('.modal');
-        modal.classList.remove('active');
-        document.body.style.overflow = ''; // Restore scrolling
+        closeModal(modal)
     });
 });
 
@@ -770,8 +848,7 @@ closeButtons.forEach(button => {
 modals.forEach(modal => {
     modal.addEventListener('click', function(e) {
         if (e.target === this) {
-            this.classList.remove('active');
-            document.body.style.overflow = ''; // Restore scrolling
+            closeModal(modal)
         }
     });
 });
@@ -780,8 +857,7 @@ modals.forEach(modal => {
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
         modals.forEach(modal => {
-            modal.classList.remove('active');
-            document.body.style.overflow = ''; // Restore scrolling
+            closeModal(modal)
         });
     }
 });

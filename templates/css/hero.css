@@ -21,6 +21,14 @@
     margin-bottom: 40px;
 }
 
+.hero-left-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    flex-gap: 24px;
+}
+
 .hero-image {
     flex-shrink: 0;
 }
@@ -94,12 +102,12 @@
 .scroll-button {
     display: inline-block;
     padding: 16px 40px;
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-    color: var(--text-white);
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary-dark) 100%);
+    color: var(--text-black);
     text-decoration: none;
     border-radius: 50px;
     font-size: 1.1rem;
-    font-weight: 600;
+    font-weight: 800;
     letter-spacing: 0.5px;
     transition: all 0.3s ease;
     box-shadow: 0 4px 20px var(--shadow-primary);

@@ -1,9 +1,7 @@
-I'm Emmanuel, a software developer and technology enthusiast.
+Hi, I'm Emmanuel. I program computers for a living, play music for unwinding, and I love building things!
 
-Not long ago, I was teaching 4th grade in Victoria, BC, Canada. Now I work as a software developer in a digital book company, and I love what I do.
+I created my first program at 14. I decided not to wait for a university teacher. It was a GCD calculator in QBasic. When I got into university, my curiosity drove me to sociology and I ended up working as an elementary school teacher. I wanted to pass on my love for learning to my students and nurture their curiosity!
 
-My career switch wasn't surprising to those who know me. As a teenager, I learned programming with books on C and PHP, then studied math and computer science at University Lyon 1. Through student organizations, I discovered sociology and became an elementary school teacher. But I never stopped programming as a hobby. Returning to software development was a new start, not starting over.
+I came back to programming after meeting one of my father's students when I was teaching in Victoria, Canada. He was a Python specialist and I was fascinated by what he taught me about programming. I enrolled at 42 Québec, finished the common core studying 50 hours a week, found an internship and right after, a job.
 
-I love programming and solving problems. I fast-tracked 42 Québec's common core through dedication and preparation—I'm a self-learner who prefers books and projects over waiting to be taught.
-
-
+I know how to learn and I love learning. It's not only about programming but also about what people do in their lives. I have a keen interest in translating real-world problems into software solutions.
