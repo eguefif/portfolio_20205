@@ -3,6 +3,7 @@
 Build script to generate index.html from template and markdown files.
 """
 
+import argparse
 import markdown
 
 from src.parsers import parse_project_file
@@ -12,6 +13,12 @@ from src.html_utils import generate_youtube_link_html
 
 
 def main():
+    # Parse command line arguments
+    parser = argparse.ArgumentParser(description='Build portfolio index.html')
+    parser.add_argument('--resume', action='store_true',
+                        help='Add resume download button to the page')
+    args = parser.parse_args()
+
     # Read the template files
     with open('./templates/index.html', 'r', encoding='utf-8') as f:
         main_template = f.read()
@@ -58,6 +65,14 @@ def main():
 
     # Replace hero section with template
     hero_html = hero_template.replace('{{ presentation }}', html_content)
+
+    # Add resume button if --resume flag is provided
+    if args.resume:
+        resume_button_html = '<a href="cv-guefif.pdf" class="resume-button" download aria-label="Download Resume">Download Resume</a>'
+    else:
+        resume_button_html = ''
+    hero_html = hero_html.replace('{{ resume_button }}', resume_button_html)
+
     output = output.replace('{{ hero }}', hero_html)
 
     # Replace projects section with template (will be filled in later)

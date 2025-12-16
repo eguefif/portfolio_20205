@@ -173,6 +173,14 @@ html {
     filter: brightness(0) invert(1);
 }
 
+/* Hero Buttons Container */
+.hero-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
 /* Scroll Button */
 .scroll-button {
     display: inline-block;
@@ -194,6 +202,29 @@ html {
     transform: translateY(-2px);
     box-shadow: 0 6px 30px var(--shadow-primary-hover);
     border-color: var(--color-primary-light);
+}
+
+/* Resume Button */
+.resume-button {
+    display: inline-block;
+    padding: 16px 40px;
+    background: linear-gradient(135deg, var(--accent-purple) 0%, var(--accent-blue) 100%);
+    color: var(--text-primary);
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(138, 43, 226, 0.3);
+    border: 2px solid transparent;
+    cursor: pointer;
+}
+
+.resume-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 30px rgba(138, 43, 226, 0.5);
+    border-color: var(--accent-purple);
 }
 
 /* Responsive layout for hero section */
@@ -530,7 +561,10 @@ html {
                 </a>
                 <!-- Scroll Button -->
             </div>
-            <a href="#projects" class="scroll-button">View My Projects</a>
+            <div class="hero-buttons">
+                <a href="#projects" class="scroll-button">View My Projects</a>
+                <a href="cv-guefif.pdf" class="resume-button" download aria-label="Download Resume">Download Resume</a>
+            </div>
         </div>
         <div class="hero-content">
             <h1>Emmanuel Guefif</h1>
