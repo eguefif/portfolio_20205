@@ -78,15 +78,12 @@ projectCards.forEach(card => {
         modal.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden'; // Prevent scrolling
         trapFocus(modal);
-        //const focusable = getFocusableElements(modal);
-        //  if (focusable.length) {
-        //    focusable[0].focus();
-        //  }
     };
 
     card.addEventListener('click', (e) => openModal(card));
     card.addEventListener('keydown', (e) => {
-      if (e.key !== "Tab") {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault(); // Prevent space from scrolling the page
         openModal(card);
       }
     });

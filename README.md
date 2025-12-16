@@ -23,6 +23,19 @@ uv run main.py --resume
 
 This adds a "Download Resume" button in the hero section that links to `cv-guefif.pdf`.
 
+**Publish to personal website:**
+```bash
+uv run main.py --publish
+```
+
+This will:
+- Copy `index.html` to your personal website directory
+- Copy the `images/` directory
+- Copy `cv-guefif.pdf` (if it exists)
+- Commit the changes with a timestamp message
+
+Note: Git push is currently disabled. You'll need to manually push changes to deploy.
+
 ## Project Structure
 
 

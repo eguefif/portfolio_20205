@@ -585,7 +585,7 @@ html {
             <h2 class="projects-title">My Projects</h2>
             <div class="projects-grid">
                 <!-- Project Card 1 -->
-                <article tabindex="0" class="project-card" data-modal="modal-1">
+                <article tabindex="0" role="button" class="project-card" data-modal="modal-1">
                     <div class="social-icons">
                         
                         <a href="https://github.com/eguefif/grb_amateur" target="_blank" class="github-link" onclick="event.stopPropagation()">
@@ -598,7 +598,7 @@ html {
                 </article>
 
                 <!-- Project Card 2 -->
-                <article tabindex="0" class="project-card" data-modal="modal-2">
+                <article tabindex="0" role="button" class="project-card" data-modal="modal-2">
                     <div class="social-icons">
                         
                         <a href="https://github.com/eguefif/rust_learning" target="_blank" class="github-link" onclick="event.stopPropagation()">
@@ -611,7 +611,7 @@ html {
                 </article>
 
                 <!-- Project Card 3 -->
-                <article tabindex="0" class="project-card" data-modal="modal-3">
+                <article tabindex="0" role="button" class="project-card" data-modal="modal-3">
                     <div class="social-icons">
                         
                         <a href="https://github.com/eguefif/game_boy_emulator" target="_blank" class="github-link" onclick="event.stopPropagation()">
@@ -624,7 +624,7 @@ html {
                 </article>
 
                 <!-- Project Card 4 -->
-                <article tabindex="0" class="project-card" data-modal="modal-4">
+                <article tabindex="0" role="button" class="project-card" data-modal="modal-4">
                     <div class="social-icons">
                         
                         <a href="https://github.com/PelletierM/miniRT" target="_blank" class="github-link" onclick="event.stopPropagation()">
@@ -846,15 +846,12 @@ projectCards.forEach(card => {
         modal.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden'; // Prevent scrolling
         trapFocus(modal);
-        //const focusable = getFocusableElements(modal);
-        //  if (focusable.length) {
-        //    focusable[0].focus();
-        //  }
     };
 
     card.addEventListener('click', (e) => openModal(card));
     card.addEventListener('keydown', (e) => {
-      if (e.key !== "Tab") {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault(); // Prevent space from scrolling the page
         openModal(card);
       }
     });

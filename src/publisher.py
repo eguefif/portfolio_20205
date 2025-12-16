@@ -73,14 +73,14 @@ def publish_to_website(source_file: str, target_dir: str):
         )
         print(f"Git commit completed: {commit_message}")
 
-        #subprocess.run(
-        #    ["git", "push"],
-        #    cwd=target_dir,
-        #    check=True,
-        #    capture_output=True,
-        #    text=True
-        #)
-        #print("Git push completed successfully")
+        subprocess.run(
+            ["git", "push", "origin", "master"],
+            cwd=target_dir,
+            check=True,
+            capture_output=True,
+            text=True
+        )
+        print("Git push completed successfully")
 
     except subprocess.CalledProcessError as e:
         print(f"Git operation failed: {e.stderr}")
