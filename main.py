@@ -41,9 +41,9 @@ def copy_project_images():
 def main():
     # Parse command line arguments
     parser = argparse.ArgumentParser(description='Build portfolio index.html')
-    parser.add_argument('--resume', action='store_true',
+    parser.add_argument('-r', '--resume', action='store_true',
                         help='Add resume download button to the page')
-    parser.add_argument('--publish', action='store_true',
+    parser.add_argument('-p', '--publish', action='store_true',
                         help='Copy index.html to personal website and commit/push changes')
     args = parser.parse_args()
 

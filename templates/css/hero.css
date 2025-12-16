@@ -102,7 +102,7 @@
 .hero-buttons {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 24px;
     align-items: center;
 }
 
