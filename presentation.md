@@ -1,3 +1,5 @@
+Mid-level developer
+Python, Rust, Rails, Postgres, Graphql, Vue.js
 Hi, I'm Emmanuel. I program computers for a living, play music for unwinding, and I love building things!
 
 I created my first program at 14. I decided not to wait for a university teacher. It was a GCD calculator in QBasic. When I got into university, my curiosity drove me to sociology and I ended up working as an elementary school teacher. I wanted to pass on my love for learning to my students and nurture their curiosity!

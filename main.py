@@ -84,8 +84,14 @@ def main():
     with open('./presentation.md', 'r', encoding='utf-8') as f:
         markdown_content = f.read()
 
+    # Extract first two lines separately and rest as presentation
+    lines = markdown_content.split('\n')
+    hero_title = lines[0] if len(lines) > 0 else ''
+    tech_stack = lines[1] if len(lines) > 1 else ''
+    presentation_content = '\n'.join(lines[2:]).lstrip() if len(lines) > 2 else ''
+
     # Convert presentation markdown to HTML
-    html_content = markdown.markdown(markdown_content)
+    html_content = markdown.markdown(presentation_content)
 
     # Combine all CSS
     all_css = f"{base_css}\n\n{hero_css}\n\n{projects_css}\n\n{modal_css}"
@@ -95,7 +101,9 @@ def main():
     output = output.replace('{{ javascript }}', javascript)
 
     # Replace hero section with template
-    hero_html = hero_template.replace('{{ presentation }}', html_content)
+    hero_html = hero_template.replace('{{ hero_title }}', hero_title)
+    hero_html = hero_html.replace('{{ tech_stack }}', tech_stack)
+    hero_html = hero_html.replace('{{ presentation }}', html_content)
 
     # Add resume button if --resume flag is provided
     if args.resume:
