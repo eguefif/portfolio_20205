@@ -126,6 +126,14 @@
     text-overflow: ellipsis;
 }
 
+.project-tech {
+    font-size: 0.9rem;
+    color: var(--color-primary);
+    font-style: italic;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
 /* Responsive layout for projects section */
 @media (max-width: 768px) {
     .projects-grid {

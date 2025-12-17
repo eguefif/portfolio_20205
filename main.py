@@ -125,7 +125,7 @@ def main():
         project_data = parse_project_file(f'./projects/{i}.md')
 
         # Generate modal HTML
-        modal_html = generate_modal_html(modal_template, i, project_data['title'], project_data['modal_content'])
+        modal_html = generate_modal_html(modal_template, i, project_data['title'], project_data['tech'], project_data['modal_content'])
         all_modals.append(modal_html)
 
         # Replace GitHub link
@@ -134,6 +134,9 @@ def main():
         # Replace title and description
         output = output.replace(f'{{{{ project_{i}_title }}}}', project_data['title'])
         output = output.replace(f'{{{{ project_{i}_description }}}}', project_data['description'])
+
+        # Replace tech
+        output = output.replace(f'{{{{ project_{i}_tech }}}}', project_data['tech'])
 
         # Replace YouTube link placeholder with generated HTML
         youtube_html = generate_youtube_link_html(project_data['youtube'])

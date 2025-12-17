@@ -23,6 +23,7 @@ def parse_project_file(filepath):
 
     github = ""
     youtube = ""
+    tech = ""
     title = ""
     description = ""
     modal_content = []
@@ -33,8 +34,11 @@ def parse_project_file(filepath):
         if github.startswith('gh:'):
             github = github[3:].strip()
 
-    # Look for optional YouTube link and title
+    # Look for optional tech line, YouTube link and title
     i = 1
+    if i < len(lines) and lines[i].strip().startswith('tech:'):
+        tech = lines[i].strip()[5:].strip()
+        i += 1
     title_line_index = -1
     while i < len(lines):
         line = lines[i].strip()
@@ -71,6 +75,7 @@ def parse_project_file(filepath):
     return {
         'github': github,
         'youtube': youtube,
+        'tech': tech,
         'title': title,
         'description': description,
         'modal_content': modal_content_html

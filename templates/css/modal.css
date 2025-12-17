@@ -52,10 +52,14 @@
 .modal-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     margin-bottom: 30px;
     padding-bottom: 20px;
     border-bottom: 2px solid var(--shadow-primary-light);
+}
+
+.modal-title-container {
+    flex: 1;
 }
 
 .modal-header h2 {
@@ -63,6 +67,14 @@
     font-size: 2rem;
     color: var(--color-primary-light);
     margin: 0;
+    margin-bottom: 10px;
+}
+
+.modal-tech {
+    font-size: 1rem;
+    color: var(--color-primary);
+    font-style: italic;
+    font-weight: 500;
 }
 
 .close-modal {

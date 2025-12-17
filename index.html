@@ -422,6 +422,14 @@ html {
     text-overflow: ellipsis;
 }
 
+.project-tech {
+    font-size: 0.9rem;
+    color: var(--color-primary);
+    font-style: italic;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
 /* Responsive layout for projects section */
 @media (max-width: 768px) {
     .projects-grid {
@@ -488,10 +496,14 @@ html {
 .modal-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     margin-bottom: 30px;
     padding-bottom: 20px;
     border-bottom: 2px solid var(--shadow-primary-light);
+}
+
+.modal-title-container {
+    flex: 1;
 }
 
 .modal-header h2 {
@@ -499,6 +511,14 @@ html {
     font-size: 2rem;
     color: var(--color-primary-light);
     margin: 0;
+    margin-bottom: 10px;
+}
+
+.modal-tech {
+    font-size: 1rem;
+    color: var(--color-primary);
+    font-style: italic;
+    font-weight: 500;
 }
 
 .close-modal {
@@ -635,6 +655,7 @@ html {
                     </div>
                     <h2>Gamma Ray Burst Platform</h2>
                     <p>This platform allows an amateur astronomer to register, get email notifications when a Gamma-Ray Burst is detected by the Fermi satellite and post observations.</p>
+                    <div class="project-tech">FastAPI, Postgres, Vue.js, Docker, Python</div>
                     <img src="images/1-1.png" alt="Gamma Ray Burst Platform" class="project-image">
                 </article>
 
@@ -648,6 +669,7 @@ html {
                     </div>
                     <h2>Rust Mastery Learning Plan</h2>
                     <p>This project started as a question on Claude. I was struggling to understand an article about Alias XOR mutability. I asked Claude if writing an async runtime would help me understand this concept. Apparently, it does not.</p>
+                    <div class="project-tech">Rust</div>
                     <img src="images/2-1.png" alt="Rust Mastery Learning Plan" class="project-image">
                 </article>
 
@@ -661,6 +683,7 @@ html {
                     </div>
                     <h2>GameBoy Emulator</h2>
                     <p>This was my first Rust project. I first emulated the CPU, then the clock, the interrupt and finally the Pixel Processing Unit (PPU). I've learned so much about the interaction of the machine and low-level programs that handle interruptions.</p>
+                    <div class="project-tech">Rust</div>
                     <img src="images/3-1.webp" alt="GameBoy Emulator" class="project-image">
                 </article>
 
@@ -674,6 +697,7 @@ html {
                     </div>
                     <h2>Ray Tracer</h2>
                     <p>This was the last C project in 42 Common Core. I worked with Maxime to make this one work. We created a Ray Tracer capable of drawing sphere, cylinder, plane and triangle.</p>
+                    <div class="project-tech">C</div>
                     <img src="images/4-1.png" alt="Ray Tracer" class="project-image">
                 </article>
             </div>
@@ -691,7 +715,10 @@ html {
     >
         <div class="modal-content">
             <div class="modal-header">
-                <h2>Gamma Ray Burst Platform</h2>
+                <div class="modal-title-container">
+                    <h2>Gamma Ray Burst Platform</h2>
+                    <div class="modal-tech">FastAPI, Postgres, Vue.js, Docker, Python</div>
+                </div>
                 <button class="close-modal" aria-label="Close modal">&times;</button>
             </div>
             <div class="modal-body">
@@ -724,7 +751,10 @@ Anytime I merge a branch on master, the new version gets automatically deployed 
     >
         <div class="modal-content">
             <div class="modal-header">
-                <h2>Rust Mastery Learning Plan</h2>
+                <div class="modal-title-container">
+                    <h2>Rust Mastery Learning Plan</h2>
+                    <div class="modal-tech">Rust</div>
+                </div>
                 <button class="close-modal" aria-label="Close modal">&times;</button>
             </div>
             <div class="modal-body">
@@ -759,7 +789,10 @@ Anytime I merge a branch on master, the new version gets automatically deployed 
     >
         <div class="modal-content">
             <div class="modal-header">
-                <h2>GameBoy Emulator</h2>
+                <div class="modal-title-container">
+                    <h2>GameBoy Emulator</h2>
+                    <div class="modal-tech">Rust</div>
+                </div>
                 <button class="close-modal" aria-label="Close modal">&times;</button>
             </div>
             <div class="modal-body">
@@ -787,7 +820,10 @@ Anytime I merge a branch on master, the new version gets automatically deployed 
     >
         <div class="modal-content">
             <div class="modal-header">
-                <h2>Ray Tracer</h2>
+                <div class="modal-title-container">
+                    <h2>Ray Tracer</h2>
+                    <div class="modal-tech">C</div>
+                </div>
                 <button class="close-modal" aria-label="Close modal">&times;</button>
             </div>
             <div class="modal-body">

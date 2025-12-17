@@ -53,7 +53,7 @@ def generate_modal_body(project_number, markdown_content):
     return '\n'.join(html_parts)
 
 
-def generate_modal_html(modal_template, project_number, project_title, markdown_content):
+def generate_modal_html(modal_template, project_number, project_title, project_tech, markdown_content):
     """
     Generate a complete modal HTML from the modal template.
     """
@@ -62,6 +62,7 @@ def generate_modal_html(modal_template, project_number, project_title, markdown_
     # Replace placeholders in modal template
     modal_html = modal_template.replace('{{ modal_id }}', f'modal-{project_number}')
     modal_html = modal_html.replace('{{ project_title }}', project_title)
+    modal_html = modal_html.replace('{{ project_tech }}', project_tech)
     modal_html = modal_html.replace('{{ modal_body }}', modal_body)
 
     return modal_html
