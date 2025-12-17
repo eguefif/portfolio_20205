@@ -11,7 +11,7 @@ from pathlib import Path
 from src.parsers import parse_project_file
 from src.images import generate_project_image_html
 from src.modals import generate_modal_html
-from src.html_utils import generate_youtube_link_html
+from src.html_utils import generate_youtube_link_html, generate_tech_badges_html
 from src.publisher import publish_to_website
 
 
@@ -135,8 +135,9 @@ def main():
         output = output.replace(f'{{{{ project_{i}_title }}}}', project_data['title'])
         output = output.replace(f'{{{{ project_{i}_description }}}}', project_data['description'])
 
-        # Replace tech
-        output = output.replace(f'{{{{ project_{i}_tech }}}}', project_data['tech'])
+        # Replace tech with badge HTML
+        tech_badges_html = generate_tech_badges_html(project_data['tech'])
+        output = output.replace(f'{{{{ project_{i}_tech }}}}', tech_badges_html)
 
         # Replace YouTube link placeholder with generated HTML
         youtube_html = generate_youtube_link_html(project_data['youtube'])

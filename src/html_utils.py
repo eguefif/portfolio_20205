@@ -11,3 +11,15 @@ def generate_youtube_link_html(youtube_url):
                     </a>
                     '''
     return ''
+
+
+def generate_tech_badges_html(tech_string):
+    """
+    Generate HTML badges for each technology in the comma-separated tech string.
+    """
+    if not tech_string:
+        return ''
+
+    techs = [tech.strip() for tech in tech_string.split(',')]
+    badges = [f'<span class="tech-badge">{tech}</span>' for tech in techs]
+    return ''.join(badges)

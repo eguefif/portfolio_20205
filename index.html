@@ -80,7 +80,7 @@ html {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 60px 40px;
+    padding: 40px 40px;
     position: relative;
     background-image:
         radial-gradient(circle at 20% 50%, var(--accent-purple) 0%, transparent 50%),
@@ -93,7 +93,7 @@ html {
     justify-content: center;
     gap: 40px;
     max-width: 1200px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
 .hero-left-col {
@@ -124,9 +124,9 @@ html {
 
 .hero-content h1 {
     font-family: 'Poppins', sans-serif;
-    font-size: 3.5rem;
+    font-size: 3rem;
     font-weight: 700;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     color: var(--color-primary-light);
     text-shadow: 2px 2px 8px var(--shadow-black-dark);
     letter-spacing: 1px;
@@ -139,9 +139,9 @@ html {
 
 .hero-title {
     font-family: 'Poppins', sans-serif;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     font-weight: 700;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
     margin-top: 0;
     color: var(--color-primary);
     text-align: center;
@@ -150,9 +150,9 @@ html {
 
 .hero-tech {
     font-family: 'Poppins', sans-serif;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: 400;
-    margin-bottom: 40px;
+    margin-bottom: 25px;
     margin-top: 0;
     color: var(--text-secondary);
     text-align: center;
@@ -162,13 +162,13 @@ html {
 
 .bio {
     color: var(--text-secondary);
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 400;
-    line-height: 2;
+    line-height: 1.7;
     text-align: left;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 12px;
 }
 
 .bio p {
@@ -423,11 +423,23 @@ html {
 }
 
 .project-tech {
-    font-size: 0.9rem;
-    color: var(--color-primary);
-    font-style: italic;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
     margin-bottom: 15px;
-    font-weight: 500;
+}
+
+.tech-badge {
+    display: inline-block;
+    padding: 6px 12px;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    color: var(--text-black);
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 16px;
+    letter-spacing: 0.3px;
+    box-shadow: 0 2px 8px var(--shadow-primary-light);
+    transition: all 0.3s ease;
 }
 
 /* Responsive layout for projects section */
@@ -515,10 +527,22 @@ html {
 }
 
 .modal-tech {
-    font-size: 1rem;
-    color: var(--color-primary);
-    font-style: italic;
-    font-weight: 500;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.modal-tech .tech-badge {
+    display: inline-block;
+    padding: 6px 12px;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    color: var(--text-black);
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 16px;
+    letter-spacing: 0.3px;
+    box-shadow: 0 2px 8px var(--shadow-primary-light);
 }
 
 .close-modal {
@@ -655,7 +679,7 @@ html {
                     </div>
                     <h2>Gamma Ray Burst Platform</h2>
                     <p>This platform allows an amateur astronomer to register, get email notifications when a Gamma-Ray Burst is detected by the Fermi satellite and post observations.</p>
-                    <div class="project-tech">FastAPI, Postgres, Vue.js, Docker, Python</div>
+                    <div class="project-tech"><span class="tech-badge">FastAPI</span><span class="tech-badge">Postgres</span><span class="tech-badge">Vue.js</span><span class="tech-badge">Docker</span><span class="tech-badge">Python</span></div>
                     <img src="images/1-1.png" alt="Gamma Ray Burst Platform" class="project-image">
                 </article>
 
@@ -669,7 +693,7 @@ html {
                     </div>
                     <h2>Rust Mastery Learning Plan</h2>
                     <p>This project started as a question on Claude. I was struggling to understand an article about Alias XOR mutability. I asked Claude if writing an async runtime would help me understand this concept. Apparently, it does not.</p>
-                    <div class="project-tech">Rust</div>
+                    <div class="project-tech"><span class="tech-badge">Rust</span></div>
                     <img src="images/2-1.png" alt="Rust Mastery Learning Plan" class="project-image">
                 </article>
 
@@ -683,7 +707,7 @@ html {
                     </div>
                     <h2>GameBoy Emulator</h2>
                     <p>This was my first Rust project. I first emulated the CPU, then the clock, the interrupt and finally the Pixel Processing Unit (PPU). I've learned so much about the interaction of the machine and low-level programs that handle interruptions.</p>
-                    <div class="project-tech">Rust</div>
+                    <div class="project-tech"><span class="tech-badge">Rust</span></div>
                     <img src="images/3-1.webp" alt="GameBoy Emulator" class="project-image">
                 </article>
 
@@ -697,7 +721,7 @@ html {
                     </div>
                     <h2>Ray Tracer</h2>
                     <p>This was the last C project in 42 Common Core. I worked with Maxime to make this one work. We created a Ray Tracer capable of drawing sphere, cylinder, plane and triangle.</p>
-                    <div class="project-tech">C</div>
+                    <div class="project-tech"><span class="tech-badge">C</span></div>
                     <img src="images/4-1.png" alt="Ray Tracer" class="project-image">
                 </article>
             </div>
@@ -717,7 +741,7 @@ html {
             <div class="modal-header">
                 <div class="modal-title-container">
                     <h2>Gamma Ray Burst Platform</h2>
-                    <div class="modal-tech">FastAPI, Postgres, Vue.js, Docker, Python</div>
+                    <div class="modal-tech"><span class="tech-badge">FastAPI</span><span class="tech-badge">Postgres</span><span class="tech-badge">Vue.js</span><span class="tech-badge">Docker</span><span class="tech-badge">Python</span></div>
                 </div>
                 <button class="close-modal" aria-label="Close modal">&times;</button>
             </div>
@@ -753,7 +777,7 @@ Anytime I merge a branch on master, the new version gets automatically deployed 
             <div class="modal-header">
                 <div class="modal-title-container">
                     <h2>Rust Mastery Learning Plan</h2>
-                    <div class="modal-tech">Rust</div>
+                    <div class="modal-tech"><span class="tech-badge">Rust</span></div>
                 </div>
                 <button class="close-modal" aria-label="Close modal">&times;</button>
             </div>
@@ -791,7 +815,7 @@ Anytime I merge a branch on master, the new version gets automatically deployed 
             <div class="modal-header">
                 <div class="modal-title-container">
                     <h2>GameBoy Emulator</h2>
-                    <div class="modal-tech">Rust</div>
+                    <div class="modal-tech"><span class="tech-badge">Rust</span></div>
                 </div>
                 <button class="close-modal" aria-label="Close modal">&times;</button>
             </div>
@@ -822,7 +846,7 @@ Anytime I merge a branch on master, the new version gets automatically deployed 
             <div class="modal-header">
                 <div class="modal-title-container">
                     <h2>Ray Tracer</h2>
-                    <div class="modal-tech">C</div>
+                    <div class="modal-tech"><span class="tech-badge">C</span></div>
                 </div>
                 <button class="close-modal" aria-label="Close modal">&times;</button>
             </div>

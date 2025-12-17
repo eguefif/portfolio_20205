@@ -5,6 +5,7 @@ import re
 
 from src.images import find_section_image
 from src.parsers import parse_markdown_sections
+from src.html_utils import generate_tech_badges_html
 
 
 def generate_modal_body(project_number, markdown_content):
@@ -59,10 +60,13 @@ def generate_modal_html(modal_template, project_number, project_title, project_t
     """
     modal_body = generate_modal_body(project_number, markdown_content)
 
+    # Generate tech badges HTML
+    tech_badges_html = generate_tech_badges_html(project_tech)
+
     # Replace placeholders in modal template
     modal_html = modal_template.replace('{{ modal_id }}', f'modal-{project_number}')
     modal_html = modal_html.replace('{{ project_title }}', project_title)
-    modal_html = modal_html.replace('{{ project_tech }}', project_tech)
+    modal_html = modal_html.replace('{{ project_tech }}', tech_badges_html)
     modal_html = modal_html.replace('{{ modal_body }}', modal_body)
 
     return modal_html
