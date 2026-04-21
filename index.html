@@ -687,14 +687,14 @@ html {
                 <article tabindex="0" role="button" class="project-card" data-modal="modal-2">
                     <div class="social-icons">
                         
-                        <a href="https://github.com/eguefif/rust_learning" target="_blank" class="github-link" onclick="event.stopPropagation()">
+                        <a href="https://github.com/eguefif/ft_nmap" target="_blank" class="github-link" onclick="event.stopPropagation()">
                             <img src="images/github-mark.svg" alt="GitHub">
                         </a>
                     </div>
-                    <h2>Rust Mastery Learning Plan</h2>
-                    <p>This project started as a question on Claude. I was struggling to understand an article about Alias XOR mutability. I asked Claude if writing an async runtime would help me understand this concept. Apparently, it does not.</p>
+                    <h2>ft_nmap</h2>
+                    <p>A basic clone of nmap written in Rust. The goal is to understand how TCP works at the packet level by crafting and sending raw packets using libpnet.</p>
                     <div class="project-tech"><span class="tech-badge">Rust</span></div>
-                    <img src="images/2-1.png" alt="Rust Mastery Learning Plan" class="project-image">
+                    <img src="images/2-1.png" alt="ft_nmap" class="project-image">
                 </article>
 
                 <!-- Project Card 3 -->
@@ -776,30 +776,32 @@ Anytime I merge a branch on master, the new version gets automatically deployed 
         <div class="modal-content">
             <div class="modal-header">
                 <div class="modal-title-container">
-                    <h2>Rust Mastery Learning Plan</h2>
+                    <h2>ft_nmap</h2>
                     <div class="modal-tech"><span class="tech-badge">Rust</span></div>
                 </div>
                 <button class="close-modal" aria-label="Close modal">&times;</button>
             </div>
             <div class="modal-body">
-                <div class="modal-section"><img src="images/2-1.png" alt="" class="modal-section-image-left"><p>This project started as a question on Claude. I was struggling to understand an article about Alias XOR mutability. I asked Claude if writing an async runtime would help me understand this concept. Apparently, it does not. </p>
-<p>I asked what could be a better project. As a teacher, I know that we cannot learn something if we don't have the prerequisites. I kept asking until I filled the gap between my current knowledge and what I aimed for. I ended up with a complete plan toward Rust mastery. It's composed of projects and book references. </p>
-<p>This is a generative AI plan. One could think this is not reliable. Here comes the best part. It is my job to check if the plan is good or not and to improve it. This work of analyzing what the plan is with regard to my experience is the most beneficial aspect of this project. In the end, I learned Rust in a way that will last.</p>
+                <div class="modal-section"><img src="images/2-1.png" alt="" class="modal-section-image-left"><p>A basic clone of nmap written in Rust. The goal is to understand how TCP works at the packet level by crafting and sending raw packets using libpnet.</p>
+<p>The scanner performs an ICMP pre-scan to check if the host is up, then scans the requested ports using one of five TCP scan types. Results are displayed with port state, service name, and timing — similar to nmap's output format.</p>
 <h2>Goals</h2>
-<p>I created this project to learn six skills:
-* Iterator in Rust
-* Parsing
-* Memory allocation
-* Smart Pointers
-* Asynchronous programming in Rust
-* Concurrency in Rust</p>
+<ul>
+<li>Understand the TCP three-way handshake</li>
+<li>Learn how raw sockets work</li>
+<li>Implement multiple TCP scan techniques (SYN, FIN, XMAS, NULL, ACK)</li>
+<li>Learn how network interfaces work at a low level in Rust</li>
+<li>Learn how to use Wireshark to check raw packets</li>
+</ul>
 <h2>Spotlights</h2>
-<p>For what I have done so far, the JSON parser was very interesting. It's not my first time doing a JSON parser, but this time I managed to do it with a simple and easy to use interface.</p>
+<p>For this project, I had to use a low-level library and craft my own packet buffers and send them via raw socket. I used Wireshark to debug what was going on when it was not working as expected. I really enjoy working low-level. I've worked on HTTP servers and this project gave me an understanding of layers 3 and 4 of the OSI model. Wireshark gave me a taste of what the Ethernet protocol looks like.</p>
 <h2>Current Status</h2>
-<p>The iterator part is done. The JSON parser is almost done. I still have to write the serialization logic.</p>
-<p>It's on pause while I am working on Advent of Code 2025 in Rust.</p>
+<p>The five scan types are implemented and working. The project is complete.</p>
 <h2>Lessons Learned</h2>
-<p>Writing the iterator struct, I learned about lifetime management. The collect-like logic taught me about generics, lifetimes and associated types.</p></div>
+<ul>
+<li>I've learned how to craft IP/TCP/ICMP packets.</li>
+<li>I've learned to debug using Wireshark.</li>
+<li>I've deepened my understanding of Rust: ownership and enums</li>
+</ul></div>
             </div>
         </div>
     </div>
