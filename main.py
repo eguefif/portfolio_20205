@@ -5,6 +5,7 @@ Build script to generate index.html from template and markdown files.
 
 import argparse
 import shutil
+import webbrowser
 from pathlib import Path
 
 import markdown
@@ -53,6 +54,11 @@ def main():
         "--publish",
         action="store_true",
         help="Copy index.html to personal website and commit/push changes",
+    )
+    parser.add_argument(
+        "--overview",
+        action="store_true",
+        help="Open index.html in the default browser",
     )
     args = parser.parse_args()
 
@@ -172,6 +178,9 @@ def main():
         f.write(output)
 
     print("Successfully generated index.html")
+
+    if args.overview:
+        webbrowser.open(Path("./index.html").resolve().as_uri())
 
     # Publish to personal website if --publish flag is provided
     if args.publish:

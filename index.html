@@ -652,11 +652,11 @@ html {
         <div class="hero-content">
             <h1>Emmanuel Guefif</h1>
             <p class="hero-title">Mid-level developer</p>
-            <p class="hero-tech">Python, Rust, Rails, Postgres, Graphql, Vue.js</p>
+            <p class="hero-tech">Elixir, Vue.JS, Ruby On Rails, Postgres, Graphql</p>
             <div class="bio">
                 <p>Hi, I'm Emmanuel. I program computers for a living, play music for unwinding, and I love building things!</p>
 <p>I created my first program at 14. I decided not to wait for a university teacher. It was a GCD calculator in QBasic. When I got into university, my curiosity drove me to sociology and I ended up working as an elementary school teacher. I wanted to pass on my love for learning to my students and nurture their curiosity!</p>
-<p>I came back to programming after meeting one of my student's father when I was teaching in Victoria, Canada. He was a Python specialist and I was fascinated by what he taught me about programming. I enrolled at 42 Québec, finished the common core studying 50 hours a week, found an internship and right after, a job.</p>
+<p>I came back to programming after meeting one of my student's father when I was teaching in Victoria, Canada. He was a Python specialist and I was fascinated by what he taught me about programming. I enrolled at 42 Québec, finished the common core in 5 months instead of 18 studying 50 hours a week, found an internship and right after, a job.</p>
 <p>I know how to learn and I love learning. It's not only about programming but also about what people do in their lives. I have a keen interest in translating real-world problems into software solutions.</p>
             </div>
         </div>
@@ -673,42 +673,42 @@ html {
                 <article tabindex="0" role="button" class="project-card" data-modal="modal-1">
                     <div class="social-icons">
                         
-                        <a href="https://github.com/eguefif/grb_amateur" target="_blank" class="github-link" onclick="event.stopPropagation()">
+                        <a href="https://github.com/eguefif/teacher_coop" target="_blank" class="github-link" onclick="event.stopPropagation()">
                             <img src="images/github-mark.svg" alt="GitHub">
                         </a>
                     </div>
-                    <h2>Gamma Ray Burst Platform</h2>
-                    <p>This platform allows an amateur astronomer to register, get email notifications when a Gamma-Ray Burst is detected by the Fermi satellite and post observations.</p>
-                    <div class="project-tech"><span class="tech-badge">FastAPI</span><span class="tech-badge">Postgres</span><span class="tech-badge">Vue.js</span><span class="tech-badge">Docker</span><span class="tech-badge">Python</span></div>
-                    <img src="images/1-1.png" alt="Gamma Ray Burst Platform" class="project-image">
+                    <h2>Teacher Coop</h2>
+                    <p>Teacher Coop lets teachers upload teaching resources and find them again through a search engine. Documents are tagged with objectives from the French curriculum, so teachers can search by what they want to teach.</p>
+                    <div class="project-tech"><span class="tech-badge">Elixir</span><span class="tech-badge">Phoenix/Liveview</span><span class="tech-badge">Docker Swarm</span><span class="tech-badge">Oban</span></div>
+                    <img src="images/1-1.png" alt="Teacher Coop" class="project-image">
                 </article>
 
                 <!-- Project Card 2 -->
                 <article tabindex="0" role="button" class="project-card" data-modal="modal-2">
                     <div class="social-icons">
                         
-                        <a href="https://github.com/eguefif/ft_nmap" target="_blank" class="github-link" onclick="event.stopPropagation()">
+                        <a href="https://github.com/eguefif/game_boy_emulator" target="_blank" class="github-link" onclick="event.stopPropagation()">
                             <img src="images/github-mark.svg" alt="GitHub">
                         </a>
                     </div>
-                    <h2>ft_nmap</h2>
-                    <p>A basic clone of nmap written in Rust. The goal is to understand how TCP works at the packet level by crafting and sending raw packets using libpnet.</p>
+                    <h2>Game Boy Emulator</h2>
+                    <p>A Game Boy emulator written in Rust. It emulates the CPU, memory bus, graphics and interrupts well enough to run **Tetris**. Other games did not work.</p>
                     <div class="project-tech"><span class="tech-badge">Rust</span></div>
-                    <img src="images/2-1.png" alt="ft_nmap" class="project-image">
+                    <img src="images/2-1.png" alt="Game Boy Emulator" class="project-image">
                 </article>
 
                 <!-- Project Card 3 -->
                 <article tabindex="0" role="button" class="project-card" data-modal="modal-3">
                     <div class="social-icons">
                         
-                        <a href="https://github.com/eguefif/game_boy_emulator" target="_blank" class="github-link" onclick="event.stopPropagation()">
+                        <a href="https://github.com/eguefif/esp32_micropython_presentation" target="_blank" class="github-link" onclick="event.stopPropagation()">
                             <img src="images/github-mark.svg" alt="GitHub">
                         </a>
                     </div>
-                    <h2>GameBoy Emulator</h2>
-                    <p>This was my first Rust project. I first emulated the CPU, then the clock, the interrupt and finally the Pixel Processing Unit (PPU). I've learned so much about the interaction of the machine and low-level programs that handle interruptions.</p>
-                    <div class="project-tech"><span class="tech-badge">Rust</span></div>
-                    <img src="images/3-1.webp" alt="GameBoy Emulator" class="project-image">
+                    <h2>MicroPython on ESP32: Python Meetup Talk</h2>
+                    <p>I gave this talk on May the 18th at the Lyon Python meetup. It introduced MicroPython on the ESP32. It builds up to a working door alarm, step by step, from blinking an LED. The [repo](https://github.com/eguefif/esp32_micropython_presentation) has the code, the wiring and a guide so attendees can reproduce each step.</p>
+                    <div class="project-tech"><span class="tech-badge">Python</span></div>
+                    <img src="images/3-1.jpg" alt="MicroPython on ESP32: Python Meetup Talk" class="project-image">
                 </article>
 
                 <!-- Project Card 4 -->
@@ -740,28 +740,35 @@ html {
         <div class="modal-content">
             <div class="modal-header">
                 <div class="modal-title-container">
-                    <h2>Gamma Ray Burst Platform</h2>
-                    <div class="modal-tech"><span class="tech-badge">FastAPI</span><span class="tech-badge">Postgres</span><span class="tech-badge">Vue.js</span><span class="tech-badge">Docker</span><span class="tech-badge">Python</span></div>
+                    <h2>Teacher Coop</h2>
+                    <div class="modal-tech"><span class="tech-badge">Elixir</span><span class="tech-badge">Phoenix/Liveview</span><span class="tech-badge">Docker Swarm</span><span class="tech-badge">Oban</span></div>
                 </div>
                 <button class="close-modal" aria-label="Close modal">&times;</button>
             </div>
             <div class="modal-body">
-                <div class="modal-section"><img src="images/1-1.png" alt="" class="modal-section-image-left"><p>This platform allows an amateur astronomer to register, get email notifications when a Gamma-Ray Burst is detected by the Fermi satellite and post observations.</p>
-<p>The backend is written with FastAPI/Postgres and the Frontend is in Vue.js.</p>
-<p>The application is hosted on Scaleway. I use Docker Swarm to manage three services: Frontend serving, FastAPI backend and AlertSys. AlertSys is a Python service that monitors NASA GCN Kafka event bus. When a message is received, AlertSys sends an HTTP request to the backend. The backend registers the alert and notifies users. Postgres is hosted on its own instances. Everything is behind an Nginx. </p>
-<p>The server's ip address is protected by Cloudflare which is used as a reverse proxy.</p>
+                <div class="modal-section"><img src="images/1-1.png" alt="" class="modal-section-image-left"><p>Teacher Coop lets teachers upload teaching resources and find them again through a search engine. Documents are tagged with objectives from the French curriculum, so teachers can search by what they want to teach.</p>
+<p>The app is built with Elixir, Phoenix and LiveView. It uses Postgres for data, Meilisearch for search and Oban for background jobs. An admin dashboard tracks search quality: zero results, failed searches and click position.</p>
+<p>It runs in Docker behind Traefik, with Let's Encrypt certificates, and sends email through Mailgun. Every pull request runs tests, coverage and Dialyzer in GitHub Actions. Each merge on main builds an image, pushes it to Docker Hub and redeploys through a Portainer webhook.</p>
 <h2>Goals</h2>
-<p>I created this project to learn three skills:
-* a simple but complete FastAPI app with: authentication, background job, dependency injection and SqlModel.
-* an automated CI/CD with Github Actions, Docker Swarm and Scaleway Cloud.
-* Domain name handling and protection with CloudFlare.</p>
+<ul>
+<li>Learn Elixir, Phoenix and LiveView on a complete app: authentication, background jobs, PubSub and real-time UI.</li>
+<li>Design an application around contexts.</li>
+<li>Integrate a search engine and measure its quality.</li>
+</ul>
 <h2>Spotlights</h2>
-<p>I am particularly proud of the automated CI/CD. I spent quite some time to make it work. Everything is pretty simple but I had trouble with Cloudflare bot filtering. When the CI passes and the docker images are built, there is a Github Action that sends a deploy request to the server where a simple FastAPI app will launch processes to update Docker Swarm services.
-Anytime I merge a branch on master, the new version gets automatically deployed on my server.</p>
+<p>I'm proudest of the domain design. I spent a lot of time on context boundaries and names. What sets the app apart is not storing files but helping teachers <strong>find</strong> resources. That gave me my core domain:</p>
+<ul>
+<li><strong>Discovery</strong> (core): search, plus tracking whether each search succeeded.</li>
+<li><strong>Library</strong> (supporting): documents, files and their curriculum objectives.</li>
+<li><strong>Curriculum</strong> (reference): the French curriculum.</li>
+<li><strong>Accounts</strong> (generic): authentication.</li>
+</ul>
+<p>"Search" named an action, while "Discovery" names the goal. "Library" says what teachers build together. Once the names were right, I knew where new code belonged. Search statistics, for example, got their own <strong>Dashboard</strong> context.</p>
 <h2>Lessons Learned</h2>
-<p>Thanks to this project, I have a better understanding of my current professional project infrastructure that uses Kubernetes and Google Cloud. I now know what tasks, instances, and pods represent.</p>
-<p>I learned how to implement a secret-based authentication between the backend and AlertSys. They share a common secret and use timestamp encoding to verify authentication.</p>
-<p>Last but not least, I learned about FastAPI. This was a great experience. The simplicity and efficiency of the framework are beautiful. It's easy to add background tasks and dependencies. My project was pretty simple. I chose to organize my app by area (users, alerts, observations). In the book I was reading about FastAPI, they organize by models, services, and controllers. Rails organizes apps by models/controllers/views. Django organizes by areas (Apps). I feel that keeping models/controllers and services in one app is what makes more sense. These three components are coupled and I find it easier to have them in one place. I don't have the experience on a big project to know what architecture design is better. This will be my next experimentation.</p></div>
+<ul>
+<li><strong>A LiveView is a process.</strong> Its state lives in assigns, and each change re-renders and sends only the diff to the browser.</li>
+<li><strong>LiveComponents</strong> run inside the parent's process and have their own assigns. They receive data through <code>update/2</code>, not <code>mount/3</code>, and each needs a unique <code>id</code>. The dashboard components load their data with <code>assign_async</code>.</li>
+</ul></div>
             </div>
         </div>
     </div>
@@ -776,31 +783,26 @@ Anytime I merge a branch on master, the new version gets automatically deployed 
         <div class="modal-content">
             <div class="modal-header">
                 <div class="modal-title-container">
-                    <h2>ft_nmap</h2>
+                    <h2>Game Boy Emulator</h2>
                     <div class="modal-tech"><span class="tech-badge">Rust</span></div>
                 </div>
                 <button class="close-modal" aria-label="Close modal">&times;</button>
             </div>
             <div class="modal-body">
-                <div class="modal-section"><img src="images/2-1.png" alt="" class="modal-section-image-left"><p>A basic clone of nmap written in Rust. The goal is to understand how TCP works at the packet level by crafting and sending raw packets using libpnet.</p>
-<p>The scanner performs an ICMP pre-scan to check if the host is up, then scans the requested ports using one of five TCP scan types. Results are displayed with port state, service name, and timing — similar to nmap's output format.</p>
+                <div class="modal-section"><img src="images/2-1.png" alt="" class="modal-section-image-left"><p>A Game Boy emulator written in Rust. It emulates the CPU, memory bus, graphics and interrupts well enough to run <strong>Tetris</strong>. Other games did not work.</p>
 <h2>Goals</h2>
 <ul>
-<li>Understand the TCP three-way handshake</li>
-<li>Learn how raw sockets work</li>
-<li>Implement multiple TCP scan techniques (SYN, FIN, XMAS, NULL, ACK)</li>
-<li>Learn how network interfaces work at a low level in Rust</li>
-<li>Learn how to use Wireshark to check raw packets</li>
+<li>Learn low-level architecture: registers, opcodes.</li>
+<li>Understand how a CPU works by building a virtual one.</li>
+<li>Get comfortable with Rust on a larger project.</li>
 </ul>
 <h2>Spotlights</h2>
-<p>For this project, I had to use a low-level library and craft my own packet buffers and send them via raw socket. I used Wireshark to debug what was going on when it was not working as expected. I really enjoy working low-level. I've worked on HTTP servers and this project gave me an understanding of layers 3 and 4 of the OSI model. Wireshark gave me a taste of what the Ethernet protocol looks like.</p>
-<h2>Current Status</h2>
-<p>The five scan types are implemented and working. The project is complete.</p>
+<p>Implementing interrupts showed me how a game like Tetris is actually written. It is a tiny loop. Most of the logic is written in interrupt. For example, when a VBlanck interrupt is sent by the GPU, the game write the next frame in the graphic memory. At the end of that logic, the code execution come back to the main tiny loop.</p>
 <h2>Lessons Learned</h2>
 <ul>
-<li>I've learned how to craft IP/TCP/ICMP packets.</li>
-<li>I've learned to debug using Wireshark.</li>
-<li>I've deepened my understanding of Rust: ownership and enums</li>
+<li><strong>How a CPU works:</strong> decoding opcodes, flags, the stack and cycle timing, and why every component must stay in sync.</li>
+<li><strong>Memory management in Rust:</strong> modelling the memory bus and deciding who owns it (CPU, graphics, timers).</li>
+<li><strong>The borrow checker:</strong> several components need access to the same memory. I had to rethink my design around ownership instead of fighting the compiler, and that made the code cleaner.</li>
 </ul></div>
             </div>
         </div>
@@ -816,23 +818,37 @@ Anytime I merge a branch on master, the new version gets automatically deployed 
         <div class="modal-content">
             <div class="modal-header">
                 <div class="modal-title-container">
-                    <h2>GameBoy Emulator</h2>
-                    <div class="modal-tech"><span class="tech-badge">Rust</span></div>
+                    <h2>MicroPython on ESP32: Python Meetup Talk</h2>
+                    <div class="modal-tech"><span class="tech-badge">Python</span></div>
                 </div>
                 <button class="close-modal" aria-label="Close modal">&times;</button>
             </div>
             <div class="modal-body">
-                <div class="modal-section"><img src="images/3-1.webp" alt="" class="modal-section-image-left"><p>This was my first Rust project. I first emulated the CPU, then the clock, the interrupt and finally the Pixel Processing Unit (PPU). I've learned so much about the interaction of the machine and low-level programs that handle interruptions.</p>
+                <div class="modal-section"><img src="images/3-1.jpg" alt="" class="modal-section-image-left"><p>I gave this talk on May the 18th at the Lyon Python meetup. It introduced MicroPython on the ESP32. It builds up to a working door alarm, step by step, from blinking an LED. The <a href="https://github.com/eguefif/esp32_micropython_presentation">repo</a> has the code, the wiring and a guide so attendees can reproduce each step.</p>
+<p><strong>Hardware:</strong> ESP32-WROOM DevKitC, breadboard, LED, button, reed switch and resistors.
+<strong>Tools:</strong> <code>esptool</code> to flash the firmware, <code>pyboard.py</code> to copy files, <code>picocom</code> for the REPL and <code>uv</code>.</p>
 <h2>Goals</h2>
-<p>I created this project to learn three skills:
-* Rust programming fundamentals including ownership, borrowing, and the type system
-* Computer architecture and low-level programming concepts through hardware emulation</p>
+<ul>
+<li>Show Python developers that they can program microcontrollers with the language they already know.</li>
+<li>Cover the core embedded concepts: GPIO, Wi-Fi, interrupts and watchdogs.</li>
+<li>Learn how a microcontroller boots, communicates and recovers from failures.</li>
+</ul>
 <h2>Spotlights</h2>
-<p>I am particularly proud of getting Tetris to run fully playable. Achieving this milestone required implementing accurate CPU instruction execution, proper timing cycles, correct PPU behavior for tile-based graphics, and synchronized screen refresh rates. Seeing the iconic Tetris pieces fall smoothly on the screen for the first time was incredibly rewarding and confirmed that all the core systems were working together correctly.</p>
-<h2>Current State</h2>
-<p>The emulator is only able to render Tetris correctly. Other games do not work. I need to rework the PPU emulation to allow other games to work. The sound is not working either.</p>
+<p>The final demo is a <strong>door alarm</strong> that brings every concept together:</p>
+<ul>
+<li>A <strong>reed switch</strong> on a GPIO pin detects when the door opens, using an <strong>interrupt</strong> instead of polling.</li>
+<li>If the door stays open too long, the ESP32 sends an HTTP request over <strong>Wi-Fi</strong> to a self-hosted <a href="https://ntfy.sh">ntfy</a> server, which pushes a notification to my phone.</li>
+<li>A <strong>watchdog</strong> resets the board if it hangs. To show it live, I blocked the port with a firewall rule: the ESP32 got stuck waiting for the TCP handshake, and the watchdog rebooted it.</li>
+</ul>
 <h2>Lessons Learned</h2>
-<p>This project was a deep dive into low-level programming. I learned about memory representation, machine architecture, assembly and clocks. I also learned a lot about reading others' code. There isn't much documentation about how the GameBoy works. Most of the emulator authors are electronics geeks who reverse-engineered the chips and wrote the emulator. The documentation is in their code. It was insightful.</p></div>
+<ul>
+<li><strong>Serial communication:</strong> UART has no shared clock, so both sides must agree on the baud rate. That's why flashing and the REPL each need a speed setting.</li>
+<li><strong>The boot process:</strong> MicroPython runs <code>boot.py</code>, then <code>main.py</code>, from its own filesystem.</li>
+<li><strong>Wiring:</strong> pull-down resistors and why a floating input gives random readings.</li>
+<li><strong>Interrupts:</strong> handlers must stay short and follow MicroPython's ISR rules.</li>
+<li><strong>Robustness:</strong> network calls can block forever, and a watchdog is a simple safety net.</li>
+<li><strong>Presenting:</strong> turning a README into a talk showed me which concepts need a live demo to make sense.</li>
+</ul></div>
             </div>
         </div>
     </div>
